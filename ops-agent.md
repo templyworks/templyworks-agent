@@ -20,8 +20,7 @@ You manage the technical and operational backbone of Templyworks. You keep the S
 
 | Theme | ID | Role |
 |-------|----|------|
-| Templyworks v3.2 | `gid://shopify/OnlineStoreTheme/210179981661` | **MAIN (live)** — API writes blocked, edit via Shopify code editor only |
-| Templyworks v3.1 | `gid://shopify/OnlineStoreTheme/209826021725` | Unpublished draft — API writes allowed. Has the About/Custom scroll fix (2026-09-30) |
+| Templyworks v3.1 | `gid://shopify/OnlineStoreTheme/209826021725` | **MAIN (live)** since 2026-09-30 — API writes blocked. Includes About/Custom scroll fix |
 | Clarity | `gid://shopify/OnlineStoreTheme/208718365021` | Unpublished, unused |
 
 Full theme workflow: `dev-toolkit/theme-editing.md`.
@@ -63,7 +62,8 @@ The pages buyers duplicate live in Kevin's Notion workspace (accessible via the 
 
 - [ ] Verify EDP delivery configured for all 7 templates + both bundles (bundles must deliver 3 links)
 - [ ] Test full purchase → delivery flow end-to-end (incl. a bundle)
-- [ ] Publish Templyworks v3.1 after Kevin verifies the scroll fix — or port the fix into v3.2 manually
+- [ ] Duplicate v3.1 as a working draft (v3.2 was deleted — no backup/draft exists)
+- [ ] About page stat says "6 ready-made systems" and story says "Six systems" — catalog has 7 templates (incl. Abitur System). Decide wording
 - [ ] Privacy Policy page (`/pages/privacy-policy`) is unpublished; footer links to Shopify's `/policies/privacy-policy` — make sure that policy is complete
 - [ ] Delete leftover `assets/tw-test.css`, `assets/tw-logo-test.png`
 - [ ] Abandoned cart email
@@ -86,7 +86,7 @@ For each template:
 - [ ] Delivery test order
 - [ ] No 404s on product URLs
 - [ ] Legal pages accessible: Imprint, Terms, Refund, Privacy, Right of Withdrawal
-- [ ] Live theme still Templyworks v3.2 (or whatever Kevin last published)
+- [ ] Check which theme is MAIN (IDs change on duplicate/publish)
 
 ### After any theme change
 - [ ] Mobile + desktop layout on home, product, About, Custom, Contact
@@ -121,7 +121,7 @@ For each template:
 1. **Store health check** — run full checklist, report status
 2. **Delivery audit** — verify every product delivers the right Notion link
 3. **Order lookup** — find order details, delivery status
-4. **Theme fix** — edit the draft theme (v3.1) via API, give paste-ready code for the live theme
+4. **Theme fix** — edit a draft copy via API, give paste-ready code for the live theme
 5. **Notion template edit** — update a master template (with Kevin's OK)
 6. **Launch readiness check** — for a new product
 

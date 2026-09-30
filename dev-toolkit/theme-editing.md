@@ -2,10 +2,10 @@
 
 ## The Rules
 
-1. **Live theme = Templyworks v3.2** (`210179981661`). API writes are blocked. Changes go through Kevin: give paste-ready code + exact file + exact location.
-2. **Draft theme = Templyworks v3.1** (`209826021725`). API writes allowed. Build and test here, then Kevin publishes.
+1. **Live theme = Templyworks v3.1** (`209826021725`, published 2026-09-30). API writes are blocked. Changes go through Kevin: give paste-ready code + exact file + exact location.
+2. **Draft theme = none right now** (v3.2 was deleted). For API work, Kevin duplicates v3.1 → Claude edits the copy → Kevin publishes.
 3. Never publish a theme programmatically.
-4. v3.1 and v3.2 can drift. Before Kevin publishes v3.1, compare changed files so nothing done in v3.2 is lost.
+4. Live and draft can drift. Before publishing a draft, compare file checksums so nothing edited on live is lost.
 
 ## Theme Structure (Dawn-based, heavily customized)
 
@@ -19,7 +19,7 @@
 | `tw-topbar` | Rotating announcement bar |
 | `header` | Dawn header (logo "Templyworks", nav) |
 | `tw-lightmode` | Light-mode overrides for tw-home, tw-about, tw-contact, tw-custom-request, topbar |
-| `tw-lightmode-pages` | Light mode for `.tw-page` bodies, PERF guard, drawer fix, **scroll fix** (v3.1 only so far) |
+| `tw-lightmode-pages` | Light mode for `.tw-page` bodies, PERF guard, drawer fix, **scroll fix** |
 | `tw-mobile-menu` | Branded mobile drawer + scrim + CTA |
 
 ### Footer group (`sections/footer-group.json`)
@@ -40,7 +40,7 @@
 
 ### Assets
 - `tw-button-unify.css` — loaded in theme.liquid
-- `tw-header.css` — **not loaded** in v3.2 layout (legacy); don't rely on it
+- `tw-header.css` — **not loaded** in the layout (legacy); don't rely on it
 - `tw-test.css`, `tw-logo-test.png` — leftovers, safe to delete
 
 ## Section File Anatomy
@@ -73,8 +73,8 @@ Use Liquid for prices (`{{ product.price | money_with_currency }}`) — never ha
 
 1. Read the existing file from the target theme first
 2. Edit (keep full file — upsert replaces the whole file)
-3. Upload via `themeFilesUpsert` to **v3.1**
-4. Preview: `https://templyworks.com/[path]?preview_theme_id=209826021725`
+3. Upload via `themeFilesUpsert` to the **draft copy**
+4. Preview: `https://templyworks.com/[path]?preview_theme_id=[draft id]`
 5. Verify mobile (≤768px) + desktop, light + dark, scrolling
 6. Tell Kevin what changed; he publishes
 
@@ -84,7 +84,7 @@ Use Liquid for prices (`{{ product.price | money_with_currency }}`) — never ha
 - ✅ Logo casing "Templyworks" (tw-motion)
 - ✅ Mobile drawer scrim/chevron (tw-mobile-menu, tw-lightmode-pages)
 - ✅ Blank-page reveal bug — failsafe in tw-motion
-- 🟡 **About + Custom Template pages not scrolling (mobile + laptop)** — fix added to `tw-lightmode-pages` in **v3.1** on 2026-09-30 (force html/body scroll, `overflow-x:clip` on #twab/#twcr, no blur orbs, no fixed background, reveal forced visible). Not yet in live v3.2 — needs Kevin to publish v3.1 or paste the fix into v3.2.
+- ✅ About + Custom Template pages not scrolling — fixed in `tw-lightmode-pages` (force html/body scroll, `overflow-x:clip` on #twab/#twcr, no blur orbs, no fixed background). Live since v3.1 publish 2026-09-30.
 
 ## Brand Visual Language
 

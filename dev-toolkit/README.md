@@ -12,17 +12,16 @@ currency: USD   # Shopify Markets shows local currency at checkout
 tax_status: Kleinunternehmerregelung §19 UStG — all variants taxable:false, no VAT charged
 owner_email: info@templyworks.com
 
-theme_live: "Templyworks v3.2"
-theme_live_id: gid://shopify/OnlineStoreTheme/210179981661   # MAIN — API writes BLOCKED
-theme_draft: "Templyworks v3.1"
-theme_draft_id: gid://shopify/OnlineStoreTheme/209826021725  # unpublished — API writes allowed
+theme_live: "Templyworks v3.1"
+theme_live_id: gid://shopify/OnlineStoreTheme/209826021725   # MAIN since 2026-09-30 — API writes BLOCKED
+theme_draft: none   # v3.2 was deleted; duplicate v3.1 in admin to get a writable draft
 theme_unused: "Clarity"
 theme_unused_id: gid://shopify/OnlineStoreTheme/208718365021
 ```
 
 ⚠️ **Rule:** Theme writes via API only work on **unpublished** themes. For the live theme, give Kevin paste-ready code for Online Store → Themes → Edit code. Never publish a theme — Kevin clicks Publish himself.
 
-"Templyworks trial" and "Tinker" no longer exist. Ignore old references to them.
+"Templyworks trial", "Tinker" and "Templyworks v3.2" no longer exist. Ignore old references to them.
 
 ## Product Catalog
 
@@ -74,6 +73,6 @@ The **Ops agent** is the bridge. Example:
 Revenue agent → "Build a new bundle at $69"
   → Ops agent reads shopify-graphql.md
   → Creates product, sets taxable:false
-  → Adds section/card changes on the DRAFT theme (v3.1)
+  → Adds section/card changes on a DRAFT copy of the live theme
   → Kevin previews + publishes
 ```

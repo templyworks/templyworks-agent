@@ -15,7 +15,7 @@ Reusable workflows. Use these instead of rebuilding from scratch.
 5. Add to collections (all-templates + relevant ones)
 6. Configure delivery (EDP) with the Notion duplicate link
 7. Decide bundle fit (Revenue) — update bundle products if needed
-8. Theme: add product card/section on DRAFT theme (v3.1), preview
+8. Theme: add product card/section on a DRAFT copy of the live theme, preview
 9. Launch content (Marketing → 8-day launch)
 10. Kevin publishes theme + announces
 ```
@@ -50,9 +50,10 @@ Pull paid orders for the year (paginate), sum `totalPriceSet.shopMoney.amount` (
 
 ```
 [ ] Run themes query — confirm current IDs
-[ ] Read current file from the DRAFT theme (v3.1, 209826021725)
+[ ] No draft? Ask Kevin to duplicate the live theme (Themes → ⋯ → Duplicate)
+[ ] Read current file from the DRAFT theme
 [ ] Upsert full file to the draft
-[ ] Preview: templyworks.com/[path]?preview_theme_id=209826021725
+[ ] Preview: templyworks.com/[path]?preview_theme_id=[draft id]
 [ ] Check mobile (≤768px), desktop, light + dark mode, scrolling
 [ ] If the live theme needs the same change: give Kevin paste-ready code + file + spot
 [ ] Report back — never assume success without checking

@@ -5,10 +5,10 @@ Tested queries/mutations for this store.
 ## ⚠️ Before Any Theme Write
 
 ```
-WRITE TO (draft):  gid://shopify/OnlineStoreTheme/209826021725  ("Templyworks v3.1")
-LIVE (blocked):    gid://shopify/OnlineStoreTheme/210179981661  ("Templyworks v3.2", MAIN)
+LIVE (blocked):  gid://shopify/OnlineStoreTheme/209826021725  ("Templyworks v3.1", MAIN since 2026-09-30)
+DRAFT:           none right now — Kevin must duplicate v3.1 in admin to create one
 ```
-`themeFilesUpsert` on the MAIN theme is refused by the connector's safety policy. Edit the draft, or give Kevin code for the Shopify code editor.
+`themeFilesUpsert` on the MAIN theme is refused by the connector's safety policy. Edit a draft copy, or give Kevin code for the Shopify code editor.
 
 Always run the themes query first — IDs change whenever Kevin duplicates/publishes.
 
@@ -22,7 +22,7 @@ Always run the themes query first — IDs change whenever Kevin duplicates/publi
 
 ```graphql
 {
-  theme(id: "gid://shopify/OnlineStoreTheme/209826021725") {
+  theme(id: "[THEME_GID]") {
     files(filenames: ["sections/*", "templates/*"], first: 250) {
       nodes { filename size }
     }
@@ -34,7 +34,7 @@ Always run the themes query first — IDs change whenever Kevin duplicates/publi
 
 ```graphql
 {
-  theme(id: "gid://shopify/OnlineStoreTheme/209826021725") {
+  theme(id: "[THEME_GID]") {
     files(filenames: ["sections/tw-about.liquid"], first: 1) {
       nodes {
         filename
@@ -59,7 +59,7 @@ mutation ThemeFilesUpsert($themeId: ID!, $files: [OnlineStoreThemeFilesUpsertFil
 Variables:
 ```json
 {
-  "themeId": "gid://shopify/OnlineStoreTheme/209826021725",
+  "themeId": "[DRAFT_THEME_GID]",
   "files": [
     { "filename": "sections/my-section.liquid",
       "body": { "type": "TEXT", "value": "...full file content..." } }
@@ -143,7 +143,7 @@ Prefix: `gid://shopify/Product/[number]`. The old "Freelancer OS" bundle no long
 ## Common Mistakes
 
 1. **Fuzzy title queries mismatch.** List all products and match exact GIDs.
-2. **Writing to the live theme** — blocked. Use v3.1.
+2. **Writing to the live theme** — blocked. Use a duplicated draft.
 3. **Hardcoding currency** — store is USD with local display; use Liquid money filters.
 4. **HTML entities in Liquid** — use `&mdash;`, `&rarr;` etc. instead of raw unicode in theme uploads.
 5. **Partial upserts** — `themeFilesUpsert` replaces the whole file; always send full content.

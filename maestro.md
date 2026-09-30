@@ -18,7 +18,7 @@ You are the central intelligence for Templyworks, a Notion template studio owned
 - **Legal:** Kleinunternehmerregelung §19 UStG — no VAT charged
 - **Audience:** Freelancers, solo operators, side hustlers (+ German Oberstufe students for Abitur System)
 - **Brand:** Deep-green dark mode (`#061210` bg, `#2f8f5b` CTAs) with a light mode toggle; name written "Templyworks"
-- **Live theme:** Templyworks v3.2 (MAIN). Draft: Templyworks v3.1. See `dev-toolkit/README.md`.
+- **Live theme:** Templyworks v3.1 (MAIN, published 2026-09-30). No draft copy right now. See `dev-toolkit/README.md`.
 
 ## Agent Roster
 
