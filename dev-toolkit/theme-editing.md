@@ -1,79 +1,91 @@
-# Theme Editing Guide — TemplyWorks
+# Theme Editing Guide — Templyworks
 
-## The One Rule
+## The Rules
 
-**Templyworks trial** (`205023969629`) is the live/active theme. Every edit goes here. Tinker (`205135151453`) is a placeholder — confirmed by Kevin, never touch it again.
+1. **Live theme = Templyworks v3.2** (`210179981661`). API writes are blocked. Changes go through Kevin: give paste-ready code + exact file + exact location.
+2. **Draft theme = Templyworks v3.1** (`209826021725`). API writes allowed. Build and test here, then Kevin publishes.
+3. Never publish a theme programmatically.
+4. v3.1 and v3.2 can drift. Before Kevin publishes v3.1, compare changed files so nothing done in v3.2 is lost.
 
-## Current Custom Sections (already built, live on Templyworks trial)
+## Theme Structure (Dawn-based, heavily customized)
 
-| File | Purpose |
+### Layout
+- `layout/theme.liquid` — renders `snippets/tw-theme-mode` in `<head>` (light/dark toggle, FOUC guard), `header-group`, `main`, `footer-group`
+
+### Header group (`sections/header-group.json`, in order)
+| Section | Purpose |
 |---|---|
-| `sections/templyworks-3d-hero.liquid` | Homepage hero — Three.js 3D orbiting cards, headline, product grid, CTA strip |
-| `assets/tw-header.css` | Header override — branded logo, purple CTA, single-row nav |
-| `assets/tw-test.css` | Leftover test file from write-access verification — safe to delete |
+| `tw-premium` | JSON-LD (Organization, WebSite, Breadcrumbs), scroll progress bar, ambient orbs, grain, reveal-on-scroll for Dawn sections |
+| `tw-topbar` | Rotating announcement bar |
+| `header` | Dawn header (logo "Templyworks", nav) |
+| `tw-lightmode` | Light-mode overrides for tw-home, tw-about, tw-contact, tw-custom-request, topbar |
+| `tw-lightmode-pages` | Light mode for `.tw-page` bodies, PERF guard, drawer fix, **scroll fix** (v3.1 only so far) |
+| `tw-mobile-menu` | Branded mobile drawer + scrim + CTA |
 
-## Section File Anatomy (for any new section)
+### Footer group (`sections/footer-group.json`)
+| Section | Purpose |
+|---|---|
+| `templyworks-footer` | Custom footer, §19 notice |
+| `tw-motion` | Logo casing fix, alt-text fix, reveal failsafe, motion |
+
+### Page sections / templates
+| Template | Section | Page |
+|---|---|---|
+| `index.json` | `tw-home` / `templyworks-3d-hero` | Homepage |
+| `page.about-v2.json`, `page.about.json` | `tw-about` (#twab) | About |
+| `page.custom-v2.json` | `tw-custom-request` (#twcr) | Custom Template Request |
+| `page.contact.json` | `tw-contact` (#twct) | Contact |
+| `page.json` | `main-page` | FAQ, Imprint, legal pages (`.tw-page` HTML in page body) |
+| `product.json` | `main-product` | Products |
+
+### Assets
+- `tw-button-unify.css` — loaded in theme.liquid
+- `tw-header.css` — **not loaded** in v3.2 layout (legacy); don't rely on it
+- `tw-test.css`, `tw-logo-test.png` — leftovers, safe to delete
+
+## Section File Anatomy
 
 ```liquid
 {% comment %} Description {% endcomment %}
 <style>
-  /* scope everything to a unique ID to avoid theme CSS collisions */
-  #tw-[section-name] { ... }
+  /* scope everything to a unique ID */
+  #tw-[name] { ... }
+  /* + light mode */
+  html[data-theme='light'] #tw-[name] { ... }
 </style>
 
-<div id="tw-[section-name]">
+<div id="tw-[name]">
   ...content...
 </div>
 
 <script>
-  /* any JS, scoped/IIFE wrapped */
+  (function(){ /* scoped JS */ })();
 </script>
 
 {% schema %}
-{
-  "name": "Section Name",
-  "settings": [],
-  "presets": [{"name": "Section Name"}]
-}
+{ "name": "Section Name", "settings": [], "presets": [{"name": "Section Name"}] }
 {% endschema %}
 ```
 
-## Wiring a Section to a Template
-
-`templates/index.json` (homepage) controls section order:
-```json
-{
-  "sections": {
-    "templyworks_hero": { "type": "templyworks-3d-hero", "settings": {} }
-  },
-  "order": ["templyworks_hero"]
-}
-```
+Use Liquid for prices (`{{ product.price | money_with_currency }}`) — never hardcode $ or €.
 
 ## Safe Edit Workflow
 
-1. Read the existing file first (never blind-overwrite)
-2. Make the change
-3. Upload via `themeFilesUpsert`
-4. Preview at `templyworks.com/?preview_theme_id=205023969629`
-5. Screenshot/verify before calling it done
-6. Never publish a theme programmatically — that's Kevin's manual click (Online Store → Themes → Publish)
+1. Read the existing file from the target theme first
+2. Edit (keep full file — upsert replaces the whole file)
+3. Upload via `themeFilesUpsert` to **v3.1**
+4. Preview: `https://templyworks.com/[path]?preview_theme_id=209826021725`
+5. Verify mobile (≤768px) + desktop, light + dark, scrolling
+6. Tell Kevin what changed; he publishes
 
-## Known Issues Already Fixed
+## Known Issues / Fix Log
 
-- ✅ "Powered by Shopify" footer branding — hidden via CSS in `base.css`
-- ✅ Header logo — branded "TemplyWorks" wordmark with purple "Works"
-- ✅ Header CTA — "Get templates →" button added
-- ✅ Nav wrapping to 2 rows — fixed via CSS grid + reduced padding
-- ✅ Duplicate nav/logo when 3D hero was first added — removed nav from section, let theme header handle it
+- ✅ "Powered by Shopify" hidden (base.css)
+- ✅ Logo casing "Templyworks" (tw-motion)
+- ✅ Mobile drawer scrim/chevron (tw-mobile-menu, tw-lightmode-pages)
+- ✅ Blank-page reveal bug — failsafe in tw-motion
+- 🟡 **About + Custom Template pages not scrolling (mobile + laptop)** — fix added to `tw-lightmode-pages` in **v3.1** on 2026-09-30 (force html/body scroll, `overflow-x:clip` on #twab/#twcr, no blur orbs, no fixed background, reveal forced visible). Not yet in live v3.2 — needs Kevin to publish v3.1 or paste the fix into v3.2.
 
-## Brand Visual Language (for consistency in new sections)
+## Brand Visual Language
 
-- Background: near-black `#080810`, never pure black
-- Accent: purple `#7c3aed`, hover `#6d28d9`
-- Text: white headlines, `rgba(255,255,255,0.5)` for muted/secondary
-- Borders: `rgba(124,58,237,0.18)` for purple-tinted dividers, `rgba(255,255,255,0.08)` for neutral
-- Typography: Inter / -apple-system, weight 700-900 for headlines, 400-500 for body
-- Buttons: solid purple primary, ghost/outline secondary
-- Cards: `rgba(255,255,255,0.03)` background, `rgba(255,255,255,0.08)` border, 16px radius
-- Always mobile-responsive — test at 768px breakpoint minimum
+See `brand-system.md`. Short version: bg `#061210`, green `#2f8f5b` buttons, `#4fbe80` accents, white headlines, 16px card radius, always light-mode rules, no heavy blur.

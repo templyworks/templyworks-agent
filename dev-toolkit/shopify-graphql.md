@@ -1,22 +1,47 @@
-# Shopify GraphQL Reference — TemplyWorks
+# Shopify GraphQL Reference — Templyworks
 
-Tested, working mutations/queries for this specific store. Copy-paste ready.
+Tested queries/mutations for this store.
 
 ## ⚠️ Before Any Theme Write
 
 ```
-ALWAYS target theme: gid://shopify/OnlineStoreTheme/205023969629 ("Templyworks trial")
-NEVER target: gid://shopify/OnlineStoreTheme/205135151453 ("Tinker" — placeholder only)
+WRITE TO (draft):  gid://shopify/OnlineStoreTheme/209826021725  ("Templyworks v3.1")
+LIVE (blocked):    gid://shopify/OnlineStoreTheme/210179981661  ("Templyworks v3.2", MAIN)
 ```
+`themeFilesUpsert` on the MAIN theme is refused by the connector's safety policy. Edit the draft, or give Kevin code for the Shopify code editor.
 
-Live/main theme writes may be blocked by safety policy depending on environment — if so, edit via the Shopify theme code editor UI directly (Online Store → Themes → Templyworks trial → Edit code) instead of the API.
+Always run the themes query first — IDs change whenever Kevin duplicates/publishes.
 
 ## Get Theme IDs
 
 ```graphql
+{ themes(first: 10) { nodes { id name role } } }
+```
+
+## List Theme Files (supports wildcards)
+
+```graphql
 {
-  themes(first: 10) {
-    nodes { id name role }
+  theme(id: "gid://shopify/OnlineStoreTheme/209826021725") {
+    files(filenames: ["sections/*", "templates/*"], first: 250) {
+      nodes { filename size }
+    }
+  }
+}
+```
+
+## Read a Theme File
+
+```graphql
+{
+  theme(id: "gid://shopify/OnlineStoreTheme/209826021725") {
+    files(filenames: ["sections/tw-about.liquid"], first: 1) {
+      nodes {
+        filename
+        checksumMd5
+        body { ... on OnlineStoreThemeFileBodyText { content } }
+      }
+    }
   }
 }
 ```
@@ -34,119 +59,91 @@ mutation ThemeFilesUpsert($themeId: ID!, $files: [OnlineStoreThemeFilesUpsertFil
 Variables:
 ```json
 {
-  "themeId": "gid://shopify/OnlineStoreTheme/205023969629",
+  "themeId": "gid://shopify/OnlineStoreTheme/209826021725",
   "files": [
-    {
-      "filename": "sections/my-section.liquid",
-      "body": { "type": "TEXT", "value": "...liquid code..." }
-    }
+    { "filename": "sections/my-section.liquid",
+      "body": { "type": "TEXT", "value": "...full file content..." } }
   ]
 }
 ```
 
-## Read a Theme File
+## List Products (with price + tax)
 
 ```graphql
 {
-  theme(id: "gid://shopify/OnlineStoreTheme/205023969629") {
-    files(filenames: ["sections/header.liquid"], first: 1) {
-      nodes {
-        filename
-        body { ... on OnlineStoreThemeFileBodyText { content } }
-      }
+  products(first: 30) {
+    nodes {
+      id title handle status
+      variants(first: 3) { nodes { id price compareAtPrice taxable } }
     }
   }
 }
 ```
+Note: `requiresShipping` does not exist on `ProductVariant` in the current API version.
 
-## List All Products
-
-```graphql
-{
-  products(first: 20) {
-    edges {
-      node {
-        id
-        title
-        variants(first: 3) {
-          edges { node { id taxable price } }
-        }
-      }
-    }
-  }
-}
-```
-
-## Fix Product Tax Status (Kleinunternehmer compliance)
+## Fix Product Tax Status
 
 ```graphql
-mutation UpdateVariantTax($input: ProductVariantsBulkInput!, $productId: ID!) {
-  productVariantsBulkUpdate(productId: $productId, variants: [$input]) {
+mutation UpdateVariantTax($productId: ID!, $variants: [ProductVariantsBulkInput!]!) {
+  productVariantsBulkUpdate(productId: $productId, variants: $variants) {
     productVariants { id taxable }
     userErrors { field message }
   }
 }
 ```
-Variables: `{ "input": { "id": "[variant gid]", "taxable": false }, "productId": "[product gid]" }`
+Variables: `{ "productId": "[product gid]", "variants": [{ "id": "[variant gid]", "taxable": false }] }`
 
-## Check Orders / Revenue (for §19 UStG threshold tracking)
+## Orders / Revenue (threshold tracking)
 
 ```graphql
 {
-  orders(first": 50, query: "created_at:>2026-01-01") {
-    edges {
-      node {
-        id
-        createdAt
-        totalPriceSet { shopMoney { amount currencyCode } }
-        taxLines { rate }
-      }
+  orders(first: 50, query: "created_at:>=2026-01-01") {
+    nodes {
+      id createdAt
+      totalPriceSet { shopMoney { amount currencyCode } }
+      taxLines { rate }
+      billingAddress { countryCodeV2 }
     }
+    pageInfo { hasNextPage endCursor }
   }
 }
 ```
-`taxLines` should always be `[]` — confirms no VAT charged.
+`taxLines` should be `[]`. Amounts are USD — convert to EUR for §19. Country code needed for EU OSS tracking.
 
-## Get Legal Pages Content
+## Pages
 
 ```graphql
-{
-  pages(first: 20) {
-    edges {
-      node { handle title isPublished bodySummary }
-    }
-  }
-}
+{ pages(first: 30) { nodes { handle title templateSuffix isPublished } } }
 ```
+Skip `body` in list queries — some pages (GDPR/Consentmo) are huge and truncate output.
 
-## Read Specific Page Body
+## Shop Info
 
 ```graphql
-{
-  pages(first: 1, query: "handle:imprint") {
-    edges { node { body } }
-  }
-}
+{ shop { name currencyCode myshopifyDomain primaryDomain { host } } }
 ```
 
-## Product Catalog Reference (current as of last audit)
+## Product Catalog Reference (2026-09-30)
 
-| Handle pattern | Product | GID |
+| Product | Handle | GID |
 |---|---|---|
-| finance-hq-* | Finance HQ | 16245061583197 |
-| second-brain-* | Second Brain | 16246052323677 |
-| client-pipeline-* | Client Pipeline | 16246055371101 |
-| project-tracker-* | Project Tracker | 16246056354141 |
-| client-portal-* | Client Portal | 16246058058077 |
-| pitch-kit-* | Pitch Kit | 16246061105501 |
-| custom-template-request | Custom Template Request | 16272542630237 |
-| freelancer-os-* | Freelancer OS bundle | 16276250034525 |
+| Finance HQ | finance-hq-notion-personal-finance-dashboard | 16245061583197 |
+| Second Brain | second-brain-notion-para-knowledge-system | 16246052323677 |
+| Client Pipeline | client-pipeline-notion-crm-for-freelancers | 16246055371101 |
+| Project Tracker | project-tracker-notion-project-task-manager | 16246056354141 |
+| Client Portal | client-portal-notion-workspace-for-freelancers-clients | 16246058058077 |
+| Pitch Kit | pitch-kit-notion-proposals-services-library | 16246061105501 |
+| Custom Template Request | custom-template-request-your-personal-notion-system | 16272542630237 |
+| Abitur System | abitur-system-notion-command-center-for-the-german-oberstufe | 16456472691037 |
+| Client Machine (bundle) | client-machine-notion-bundle | 16467109019997 |
+| Solo Ops (bundle) | solo-ops-notion-bundle | 16467110953309 |
 
-Prefix all with `gid://shopify/Product/[number]`
+Prefix: `gid://shopify/Product/[number]`. The old "Freelancer OS" bundle no longer exists.
 
-## Common Mistakes (learned the hard way)
+## Common Mistakes
 
-1. **Title-based product queries can mismatch.** `query: "title:Freelancer*"` once matched a wrong product. Always verify by listing all products first and reading exact titles, not assuming a fuzzy match is correct.
-2. **Don't touch Tinker.** It's the placeholder/backup. All real work is on Templyworks trial.
-3. **Theme preview URL format:** `https://templyworks.com/?preview_theme_id=205023969629`
-4. **HTML entities required in Liquid `{% schema %}` JSON strings and in raw HTML** — use `&euro;`, `&mdash;`, `&rarr;` etc. instead of raw unicode to avoid encoding issues in theme file uploads.
+1. **Fuzzy title queries mismatch.** List all products and match exact GIDs.
+2. **Writing to the live theme** — blocked. Use v3.1.
+3. **Hardcoding currency** — store is USD with local display; use Liquid money filters.
+4. **HTML entities in Liquid** — use `&mdash;`, `&rarr;` etc. instead of raw unicode in theme uploads.
+5. **Partial upserts** — `themeFilesUpsert` replaces the whole file; always send full content.
