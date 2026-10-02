@@ -1,0 +1,87 @@
+{% comment %}
+  Templyworks: EU withdrawal waiver for digital content (§356(5) BGB / Art. 16(m) CRD).
+  - Required checkbox in front of every checkout button (cart page + cart drawer)
+  - Express/dynamic "Buy it now" buttons hidden (they would skip the checkbox)
+  - Consent + timestamp saved as cart attribute -> shows on the order as proof
+{% endcomment %}
+<style>
+  .shopify-payment-button,
+  .cart__dynamic-checkout-buttons,
+  .additional-checkout-buttons,
+  shopify-accelerated-checkout,
+  shopify-accelerated-checkout-cart { display: none !important; }
+  .tw-wid { display: flex; gap: 10px; align-items: flex-start; text-align: left; margin: 0 0 12px; font-size: 1.3rem; line-height: 1.45; cursor: pointer; }
+  .tw-wid input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; cursor: pointer; }
+  .tw-wid a { text-decoration: underline; }
+  .tw-wid--error { outline: 2px solid #e5484d; outline-offset: 4px; border-radius: 6px; }
+  .tw-wid-msg { display: none; color: #e5484d; font-size: 1.2rem; margin: -6px 0 10px; }
+  .tw-wid--error + .tw-wid-msg { display: block; }
+</style>
+<script>
+  (function () {
+    var de = {{ request.locale.iso_code | json }}.indexOf('de') === 0;
+    var url = '/pages/right-of-withdrawal';
+    var TEXT = de
+      ? 'Ich stimme ausdrücklich zu, dass Templyworks vor Ablauf der Widerrufsfrist mit der Bereitstellung der digitalen Inhalte beginnt. Mir ist bekannt, dass ich dadurch mein <a href="' + url + '" target="_blank">Widerrufsrecht</a> verliere.'
+      : 'I expressly agree that Templyworks starts delivering the digital content before the withdrawal period ends. I acknowledge that I thereby lose my <a href="' + url + '" target="_blank">right of withdrawal</a>.';
+    var MSG = de ? 'Bitte bestätige die Zustimmung, um fortzufahren.' : 'Please tick the box to continue.';
+    var BTN = 'button[name="checkout"], #checkout, #CartDrawer-Checkout, a[href^="/checkout"]';
+    var checked = false;
+
+    function save() {
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ attributes: {
+          'Widerrufsverzicht': checked ? 'Zugestimmt / Agreed ' + new Date().toISOString() : ''
+        } })
+      }).catch(function () {});
+    }
+
+    function sync() {
+      document.querySelectorAll('.tw-wid input').forEach(function (i) { i.checked = checked; });
+      document.querySelectorAll('.tw-wid').forEach(function (l) { if (checked) l.classList.remove('tw-wid--error'); });
+    }
+
+    function apply() {
+      document.querySelectorAll(BTN).forEach(function (btn) {
+        if (btn.dataset.twWid) return;
+        btn.dataset.twWid = '1';
+        if (document.getElementById('tw-withdrawal-consent')) return; // cart page already has the theme's own consent box
+        var label = document.createElement('label');
+        label.className = 'tw-wid';
+        label.innerHTML = '<input type="checkbox" required> <span>' + TEXT + '</span>';
+        var msg = document.createElement('p');
+        msg.className = 'tw-wid-msg';
+        msg.textContent = MSG;
+        btn.parentNode.insertBefore(label, btn);
+        btn.parentNode.insertBefore(msg, btn);
+        label.querySelector('input').checked = checked;
+        label.querySelector('input').addEventListener('change', function (e) {
+          checked = e.target.checked; sync(); save();
+        });
+      });
+    }
+
+    function block(e) {
+      if (checked) return;
+      var hit = e.type === 'submit'
+        ? (e.target.querySelector && e.target.querySelector(BTN))
+        : (e.target.closest && e.target.closest(BTN));
+      if (!hit) return;
+      var own = document.getElementById('tw-withdrawal-consent');
+      if (own) { if (own.checked) return; e.preventDefault(); e.stopImmediatePropagation(); own.reportValidity && own.reportValidity(); return; }
+      e.preventDefault(); e.stopImmediatePropagation();
+      document.querySelectorAll('.tw-wid').forEach(function (l) { l.classList.add('tw-wid--error'); });
+    }
+
+    document.addEventListener('click', block, true);
+    document.addEventListener('submit', block, true);
+    function ready() {
+      apply();
+      new MutationObserver(apply).observe(document.body, { childList: true, subtree: true });
+    }
+    if (document.readyState !== 'loading') ready();
+    else document.addEventListener('DOMContentLoaded', ready);
+  })();
+</script>
