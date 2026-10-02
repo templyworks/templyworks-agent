@@ -154,3 +154,10 @@ Zahlungsmethode: [Kreditkarte / PayPal via Shopify]
 5. **Chargeback response** — dispute response with evidence structure
 6. **Compliance checklist run** — go through all items, report status
 7. **Threshold check** — revenue vs §19 and OSS limits
+
+## Checkout consent implementation (Oct 2026)
+- Cart page: theme's own required checkbox `#tw-withdrawal-consent` → cart attribute "Widerrufsverzicht / Withdrawal waiver"
+- Add-to-cart popup / drawer checkout: `snippets/tw-withdrawal-consent.liquid` adds a required box, saves cart attribute "Widerrufsverzicht" with timestamp
+- "Buy it now" + express checkout buttons hidden (they bypass the box)
+- Order confirmation email repeats the waiver + shows the consent timestamp (durable medium)
+- Source: `dev-toolkit/theme-snippets/tw-withdrawal-consent.liquid`
