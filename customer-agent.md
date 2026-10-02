@@ -118,12 +118,14 @@ Kevin
 
 ### 6. Refund Request
 
-**Policy (published, July 2026):** all sales final once the link is delivered (customer waived withdrawal at checkout). Refund when:
-- broken link / failed delivery / technical access issue reported within 14 days and we can't fix it
-- accidental duplicate order reported within 48 hours
-- the content is actually defective (statutory right)
+**Policy: NO REFUNDS.** All sales final once the link is delivered (customer waived withdrawal at checkout). No goodwill refunds, no change-of-mind refunds, no exceptions.
 
-**Qualifies:**
+Only refund where the law forces it:
+- broken link / failed delivery we cannot fix (always try to fix first — resend link)
+- accidental duplicate order (same product bought twice)
+- content is actually defective and we can't fix it (statutory right — can't be waived)
+
+**Legally required case only:**
 ```
 Subject: Re: Refund request
 
@@ -149,7 +151,7 @@ But I'd really like it to work for you. What's missing or not fitting? Often it'
 
 Kevin
 ```
-Goodwill exceptions for small amounts are Kevin's call — flag, don't promise.
+Never offer or promise a refund outside the legally required cases. Offer help, a fix, or a Custom Request instead.
 
 ### 7. German-language support
 ```

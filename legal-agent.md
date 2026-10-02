@@ -105,11 +105,10 @@ Zahlungsmethode: [Kreditkarte / PayPal via Shopify]
 - Terms (Section 3) and Refund Policy cover this; checkout must show the consent step — verify it's actually present at checkout
 - Right of Withdrawal page exists at `/pages/right-of-withdrawal`
 
-### Current refund policy (published, July 2026)
-- **All sales final once the template link is delivered**
-- Broken link / failed delivery / technical access issue reported within 14 days → fixed or refunded
-- Accidental duplicate orders refunded if reported within 48 hours
-- Statutory rights for defective content unaffected
+### Current refund policy: NO REFUNDS
+- **All sales final once the template link is delivered.** No goodwill or change-of-mind refunds.
+- Only legally forced exceptions: failed delivery we can't fix, accidental duplicate order, defective content we can't fix (statutory rights cannot be waived)
+- "No refunds" is only enforceable if the checkout consent step exists (see above) AND the order confirmation email repeats the waiver (durable medium, §312f(3) BGB). Without both, customers keep the full 14-day withdrawal right.
 
 ## Minors in Business (Germany)
 
