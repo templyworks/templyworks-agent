@@ -382,4 +382,78 @@ TEMPLATES = [
         ],
         "licence": "Licence: personal and business use, including work for your own clients. Reselling or redistributing the workspace as a template is not allowed. Statutory rights remain unaffected.",
     },
+    {
+        "slug": "abitur-system",
+        "lang": "de",
+        "name": "Abitur-System",
+        "file_name": "Abitur-System",
+        "tagline": "Deine Kommandozentrale für die Oberstufe.",
+        "intro": "Noten, Klausuren, Stundenplan, Aufgaben, Termine, Fehlzeiten und Gewohnheiten an einem ruhigen Ort — von der ersten Klausur bis zur Abi-Feier.",
+        "inside": [
+            ("Dashboard", "Ø Notenpunkte, offene Klausuren, offene Aufgaben und Fehlstunden auf einen Blick."),
+            ("Stundenplan", "Deine Kurse nach Wochentag und Block, mit A/B-Wochen."),
+            ("Tasks", "Hausaufgaben, Lernen, Referate — mit Fälligkeit und Priorität."),
+            ("Habits", "Gewohnheiten mit Streak, z. B. täglich lernen oder Sport."),
+            ("Noten", "Alle Leistungen Q1–Q4 mit automatischer Umrechnung Punkte → Note."),
+            ("Klausuren", "Jede Klausur mit Countdown, Lernstart-Erinnerung und Lernfortschritt."),
+            ("Termine", "Abgaben, Prüfungen, Facharbeit, Zeugnisse — mit Countdown."),
+            ("Fehlzeiten", "Fehlstunden und ob die Entschuldigung abgegeben ist."),
+        ],
+        "setup": [
+            ("Stundenplan eintragen", "Lege in <b>Stundenplan</b> pro Kursstunde eine Zeile an: <b>Kurs</b>, <b>Wochentag</b>, <b>Block</b>, <b>Raum</b>, <b>Lehrkraft</b>. Hast du A/B-Wochen, setze <b>Woche</b> auf A oder B, sonst „Beide“. Passe die Blockzeiten bei Bedarf an deine Schule an."),
+            ("Klausuren anlegen", "Trage in <b>Klausuren</b> jede bekannte Klausur mit <b>Datum</b>, <b>Halbjahr</b> und <b>Themen</b> ein. Setze einen <b>Lernstart</b> — Notion erinnert dich an dem Tag automatisch."),
+            ("Noten, Termine & Habits", "In <b>Noten</b>: <b>Punkte</b> (0–15), <b>Art</b>, <b>Halbjahr</b> und <b>Gewichtung</b> — die Note rechnet sich selbst aus. Wichtige Termine (Abgaben, Facharbeit, Abi-Prüfungen) in <b>Termine</b>; 2–4 Gewohnheiten in <b>Habits</b>."),
+        ],
+        "callout": "",
+        "sections": [
+            ("Noten (automatisch)", [
+                "Felder mit Formel (Note, Tage bis Klausur, Countdown) füllen sich selbst — dort tippst du nie etwas ein. Bleibt eines leer, fehlt meist ein Datum oder eine Punktzahl.",
+                "<b>Punkte</b> 0–15 eintragen — <b>Note</b> wird automatisch umgerechnet (z. B. 13 Punkte = 1−).",
+                "<b>Gewichtung</b> bestimmt, wie stark eine Leistung zählt (z. B. Klausur 2, Mündlich 1). Daraus entstehen die <b>gewichteten Punkte</b> für deinen Schnitt.",
+                "<b>Ø Notenpunkte</b> oben im Dashboard rechnet sich aus allen eingetragenen Noten.",
+                "Filtere nach <b>Halbjahr</b> (Q1–Q4), um jedes Halbjahr einzeln zu sehen.",
+            ]),
+            ("Klausuren", [
+                "<b>Tage bis Klausur</b> zählt automatisch runter. <b>Lernphase</b> zeigt dir, wie dringend es ist.",
+                "<b>Lernstart</b> hat eine Erinnerung um 17:00 am gewählten Tag.",
+                "Status: Noch nicht begonnen → Am Lernen → Wiederholung → Bereit → Geschrieben.",
+                "Pflege <b>Lernfortschritt %</b> und <b>Lernzeit gesamt</b>, um ehrlich zu sehen, wo du stehst. Links zu Materialien gehören in <b>Materialien / Links</b>.",
+                "Nach der Klausur: Status „Geschrieben“ und die Punkte in <b>Noten</b> eintragen.",
+            ]),
+            ("Tasks & Habits", [
+                "<b>Fälligkeit</b> zeigt automatisch, was heute fällig oder überfällig ist.",
+                "<b>Typ</b> (Aufgabe, Lernen, Lesen, Projekt, Referat) und <b>Priorität</b> helfen beim Sortieren.",
+                "Habits: Hake <b>Heute</b> ab, wenn erledigt, und zähle deinen <b>Streak</b> hoch. Unten im Dashboard siehst du „Streak pro Bereich“ und „Heute erledigt“.",
+            ]),
+            ("Termine & Fehlzeiten", [
+                "<b>Countdown</b> bei Terminen rechnet sich selbst; am Vortag um 18:00 kommt eine Erinnerung.",
+                "Fehlzeiten: Datum, <b>Fehlstunden</b>, <b>Art</b> eintragen und <b>Entschuldigung abgegeben</b> abhaken — <b>Status</b> zeigt dir, was noch offen ist.",
+            ]),
+        ],
+        "routine": [
+            ("Täglich (2 Min.)", "Tasks abhaken, Habits „Heute“ setzen, kurz auf offene Klausuren schauen."),
+            ("Nach jeder Note", "Punkte + Gewichtung in Noten eintragen — dein Schnitt ist sofort aktuell."),
+            ("Wöchentlich (10 Min.)", "Neue Klausuren/Termine eintragen, Lernstart setzen, Fehlzeiten-Entschuldigungen prüfen."),
+            ("Halbjahresende", "Halbjahr filtern, Schnitt prüfen, Ziele fürs nächste Halbjahr setzen."),
+        ],
+        "tips": [
+            "Lege den Lernstart 10–14 Tage vor jeder Klausur — die Erinnerung macht den Rest.",
+            "Trage auch mündliche Noten ein; sie zählen oft mehr, als man denkt.",
+            "Die Umrechnung und Gewichtung kannst du an die Regeln deines Bundeslandes anpassen.",
+            "Pinne das Dashboard als Favorit (☆) — so ist es auf dem Handy mit einem Tipp offen.",
+        ],
+        "faq": [
+            ("Brauche ich Notion Plus?", "Nein. Alles Wichtige läuft im kostenlosen Notion-Plan. Notion Free erlaubt nur ein Diagramm — die Diagramme unten im Dashboard sehen mit Plus am vollständigsten aus."),
+            ("Kann ich Kurse und Felder ändern?", "Ja, alles ist frei anpassbar. Benennst du ein Feld um, das eine Formel nutzt, passt Notion die Formel automatisch an."),
+            ("Mein Bundesland zählt anders.", "Passe die Gewichtung pro Leistung an. Die Punkte-Skala 0–15 gilt bundesweit."),
+            ("Etwas funktioniert nicht?", "Schreib an info@templyworks.com mit einem Screenshot."),
+        ],
+        "licence": "Lizenz: Nutzung für deine eigene Schulzeit und dein Privatleben. Weiterverkauf, Weitergabe oder Veröffentlichung des Templates ist nicht erlaubt. Digitales Produkt — alle Käufe sind nach der Bereitstellung endgültig (Zustimmung beim Kauf, § 356 Abs. 5 BGB). Gesetzliche Gewährleistungsrechte bleiben unberührt.",
+    },
+]
+
+COMMON_START_DE = [
+    ("Template duplizieren", "Öffne den Link aus deiner Bestell-E-Mail. Klicke oben rechts auf ··· und dann auf <b>Duplizieren</b>. Arbeite nur in deiner Kopie."),
+    ("Beispiele löschen", "Jede Datenbank enthält ein paar Beispielzeilen. Schau sie dir an und lösche sie dann (Zeilen markieren → Löschen) oder überschreibe sie mit deinen Daten."),
+    ("Als Favorit markieren", "Klicke oben auf den Stern (☆). So findest du das System in der Seitenleiste und am Handy unter Favoriten."),
 ]
