@@ -48,7 +48,7 @@ def cover(c, doc):
     c.setFillColor(colors.HexColor("#0f2a1f")); c.circle(W * 0.1, H * 0.18, 110, stroke=0, fill=1)
     c.setFont("DVB", 15); c.setFillColor(colors.white); c.drawString(M, H - 30 * mm, "Temply")
     c.setFillColor(BRIGHT); c.drawString(M + c.stringWidth("Temply", "DVB", 15), H - 30 * mm, "works")
-    c.setFillColor(BRIGHT); c.setFont("DVB", 9); c.drawString(M, H * 0.56, "SETUP & USER GUIDE")
+    c.setFillColor(BRIGHT); c.setFont("DVB", 9); c.drawString(M, H * 0.56, t.get("cover_label", "SETUP & USER GUIDE"))
     c.setFillColor(colors.white); c.setFont("DVB", 38); c.drawString(M, H * 0.56 - 48, t["name"])
     c.setFont("DV", 14); c.setFillColor(colors.HexColor("#b9d6c4")); c.drawString(M, H * 0.56 - 76, t["tagline"])
     c.setStrokeColor(ACCENT); c.setLineWidth(2); c.line(M, H * 0.56 - 96, M + 60, H * 0.56 - 96)
@@ -106,18 +106,19 @@ def build(t, out):
     s = [NextPageTemplate("page"), PageBreak()]
     s += [Paragraph("Welcome", st["h1"]), Paragraph(t["intro"], st["body"]), Spacer(1, 8),
           Paragraph("What's inside", st["h2"]), kv(t["inside"]), Spacer(1, 6),
-          Paragraph("Get started in 5 minutes", st["h2"]), steps(COMMON_START + t["setup"]), Spacer(1, 10),
-          callout("<b>Good to know:</b> fields with a formula or rollup fill in by themselves — you never type into them. "
-                  "If one shows empty, the linked data (relation, date or amount) it needs is missing.")]
+          Paragraph(t.get("setup_title", "Get started in 5 minutes"), st["h2"]),
+          steps(t["setup"] if t.get("kind") == "service" else COMMON_START + t["setup"]), Spacer(1, 10),
+          callout(t.get("callout", "<b>Good to know:</b> fields with a formula or rollup fill in by themselves — you never type into them. "
+                  "If one shows empty, the linked data (relation, date or amount) it needs is missing."))]
     s.append(PageBreak())
-    s.append(Paragraph("How it works", st["h1"]))
+    s.append(Paragraph(t.get("page2_title", "How it works"), st["h1"]))
     for title, lst in t["sections"]:
         s.append(KeepTogether([Paragraph(title, st["h2"])] + bullets(lst)))
     s.append(Spacer(1, 6))
-    s.append(KeepTogether([Paragraph("Your routine", st["h2"]), kv(t["routine"])]))
+    s.append(KeepTogether([Paragraph(t.get("routine_title", "Your routine"), st["h2"]), kv(t["routine"])]))
     s.append(KeepTogether([Paragraph("Pro tips", st["h2"])] + bullets(t["tips"])))
-    s.append(KeepTogether([Paragraph("FAQ", st["h2"]), kv(COMMON_FAQ)]))
-    s += [Spacer(1, 12), Paragraph("Licence: personal and business use, including work for your own clients. "
+    s.append(KeepTogether([Paragraph("FAQ", st["h2"]), kv(t.get("faq", COMMON_FAQ))]))
+    s += [Spacer(1, 12), Paragraph(t["licence"], st["muted"])] if t.get("licence") else [Spacer(1, 12), Paragraph("Licence: personal and business use, including work for your own clients. "
           "Reselling or redistributing the template is not allowed. Digital product — all sales are final once delivered "
           "(you agreed to immediate delivery at checkout). Statutory rights for defective content remain unaffected.", st["muted"])]
     doc.build(s)
