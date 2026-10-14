@@ -2,7 +2,7 @@
 
 ## Identity
 
-**Name:** Templyworks — capital T, lowercase w. (Old "TemplyWorks" spelling retired; the theme rewrites the logo text to "Templyworks".)
+**Name:** Templyworks — capital T, lowercase w. ALWAYS. Never "TemplyWorks". (Rule from Kevin, permanent.)
 **Tagline direction:** "We turn chaos into systems." / "Stop building from scratch."
 **Positioning:** A Notion design studio from Hamburg.
 **Voice:** Direct, confident, calm. Not corporate, not hype-y. Real benefits over productivity-guru language.
@@ -10,7 +10,7 @@
 ## Colors — Dark mode (default)
 
 ```css
---tw-bg: #061210;              /* page background (deep green-black) */
+--tw-bg: #061210;              /* custom sections bg (deep green-black); theme color scheme-1 bg = #071310 */
 --tw-panel: #0b1a16;           /* cards / panels */
 --tw-green: #2f8f5b;           /* primary accent, buttons */
 --tw-green-hover: #1c5c3a;     /* button hover */
@@ -50,7 +50,7 @@ font-family: -apple-system, 'Inter', BlinkMacSystemFont, sans-serif;
 
 ## Logo
 
-"Temply" in foreground color + "works" in green `#2f8f5b`, no space, weight 800. Green favicon/mark `templyworks-favicon-tw-green.png`.
+Text wordmark, no image uploaded. "Temply" white `#fff` + "works" green `#2f8f5b`, no space, weight 800, 20px, in `sections/header.liquid` (`.tw-logo-temply` / `.tw-logo-works`). Note: header markup still literally spells `Works` — written text must be "Templyworks". Green favicon/mark `templyworks-favicon-tw-green.png`.
 
 ## Product Naming Convention
 

@@ -40,6 +40,8 @@ All variants `taxable: false`.
 | ⚖️ **Legal** | `legal-agent.md` | GDPR, Impressum, T&Cs, Kleinunternehmer, EU compliance |
 | 📊 **Analytics** | `analytics-agent.md` | Revenue reports, RFM, cohorts, weekly briefing |
 
+**Read `MEMORY.md` first** — permanent rules (name spelling, live theme, colors).
+
 Technical reference lives in `/dev-toolkit` (theme IDs, GraphQL, brand tokens).
 
 ---

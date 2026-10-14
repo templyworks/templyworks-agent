@@ -2,7 +2,7 @@
 
 Technical companion to the business agents — **code-level Shopify work**: theme edits, Liquid sections, GraphQL, store automation. The 9 business agents handle strategy and content; this handles implementation.
 
-## Store Configuration (verified 2026-09-30)
+## Store Configuration (verified 2026-10-14)
 
 ```yaml
 shop_name: Templyworks
@@ -12,16 +12,18 @@ currency: USD   # Shopify Markets shows local currency at checkout
 tax_status: Kleinunternehmerregelung §19 UStG — all variants taxable:false, no VAT charged
 owner_email: info@templyworks.com
 
-theme_live: "Templyworks v3.11"
-theme_live_id: gid://shopify/OnlineStoreTheme/209826021725   # MAIN since 2026-09-30 — API writes BLOCKED
-theme_draft: "Copy of Templyworks v3.11"   # id 210510086493 — has withdrawal-consent snippet (snippets/tw-withdrawal-consent.liquid, rendered from snippets/meta-tags.liquid); Kevin must publish
-theme_unused: "Clarity"
-theme_unused_id: gid://shopify/OnlineStoreTheme/208718365021
+theme_live: "Templyworks v3.12"
+theme_live_id: gid://shopify/OnlineStoreTheme/210510086493   # MAIN — API writes BLOCKED
+theme_unpublished:
+  - "Clarity"                  # 208718365021
+  - "Updated copy of Clarity"  # 210676089181
+  - "test test"                # 210806309213
+theme_draft: none — duplicate v3.12 for API work
 ```
 
 ⚠️ **Rule:** Theme writes via API only work on **unpublished** themes. For the live theme, give Kevin paste-ready code for Online Store → Themes → Edit code. Never publish a theme — Kevin clicks Publish himself.
 
-"Templyworks trial", "Tinker" and "Templyworks v3.2" no longer exist. Ignore old references to them.
+"Templyworks trial", "Tinker", "Templyworks v3.1", "v3.11" and "v3.2" no longer exist. Ignore old references to them.
 
 ## Product Catalog
 

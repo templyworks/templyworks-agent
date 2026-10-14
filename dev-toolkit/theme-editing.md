@@ -2,8 +2,8 @@
 
 ## The Rules
 
-1. **Live theme = Templyworks v3.1** (`209826021725`, published 2026-09-30). API writes are blocked. Changes go through Kevin: give paste-ready code + exact file + exact location.
-2. **Draft theme = none right now** (v3.2 was deleted). For API work, Kevin duplicates v3.1 → Claude edits the copy → Kevin publishes.
+1. **Live theme = Templyworks v3.12** (`210510086493`, verified 2026-10-14). API writes are blocked. Changes go through Kevin: give paste-ready code + exact file + exact location.
+2. **Draft theme = none right now.** For API work, Kevin duplicates v3.12 → Claude edits the copy → Kevin publishes.
 3. Never publish a theme programmatically.
 4. Live and draft can drift. Before publishing a draft, compare file checksums so nothing edited on live is lost.
 
