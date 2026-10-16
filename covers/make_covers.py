@@ -1,15 +1,18 @@
-"""Generate Templyworks Notion cover images (1500x600) for each template."""
+"""Generate Templyworks Notion cover images (1500x600) — v4 with real sample data.
+
+No title/tagline on the cover: the Notion page shows them right below.
+Content stays in the visible band (y ~185-390); bottom-left stays free for the page icon.
+"""
 import glob, os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H = 1500, 600
 BG = (6, 18, 16)
-GREEN = (47, 143, 91)
-GREEN_LT = (120, 201, 150)
-CARD = (14, 34, 29)
-CARD2 = (20, 48, 40)
+CARD = (13, 31, 27)
+CARD_LINE = (36, 74, 62)
 TEXT = (236, 244, 239)
-MUTED = (150, 178, 164)
+MUTED = (140, 168, 154)
+
 
 def font(size, bold=False):
     names = (["Inter-Bold", "DejaVuSans-Bold", "LiberationSans-Bold"] if bold
@@ -20,60 +23,101 @@ def font(size, bold=False):
             return ImageFont.truetype(hits[0], size)
     return ImageFont.load_default()
 
+
+# slug, accent colour, cards: (title, [(label, value, highlight?)...])
 TEMPLATES = [
-    ("finance-hq", "Finance HQ", "Budgets, bills, goals & net worth — calmly.",
-     ["Net worth", "Budgets", "Bills due", "This month"]),
-    ("client-pipeline", "Client Pipeline", "Leads, deals & follow-ups — nothing goes cold.",
-     ["Prospect", "Contacted", "Proposal", "Won"]),
-    ("project-tracker", "Project Tracker", "Every deadline, every client, one calm view.",
-     ["Due this week", "Project health", "Scope changes", "Time log"]),
-    ("pitch-kit", "Pitch Kit", "Proposals, proof & follow-ups that close.",
-     ["Good", "Better", "Best", "Follow up"]),
-    ("second-brain", "Second Brain", "Capture fast. File later. Find anything.",
-     ["Inbox", "Projects", "Areas", "Weekly review"]),
-    ("client-portal", "Client Portal", "One home for your client: status, files, invoices.",
-     ["Coming up", "For review", "Feedback", "Invoices"]),
-    ("student-os", "Student OS", "Classes, assignments, exams & GPA in one place.",
-     ["Due this week", "Next exams", "GPA", "Study time"]),
+    ("finance-hq", (72, 196, 128), [
+        ("Net worth", [("Total", "13,600", True), ("Debt", "−7,840", False)]),
+        ("Budgets", [("Groceries", "248 left", True), ("Dining", "89 left", False)]),
+        ("Bills due", [("Cloud 2TB", "Oct 22", False), ("Gym", "Oct 28", False)]),
+        ("This month", [("In", "5,050", True), ("Out", "1,830", False)]),
+    ]),
+    ("client-pipeline", (88, 170, 230), [
+        ("Follow up", [("Bloom Yoga", "today", True), ("Aurora", "Oct 19", False)]),
+        ("Pipeline", [("Open deals", "4", False), ("Value", "$15,900", True)]),
+        ("Won", [("Nordic Health", "$14,000", True), ("This year", "1", False)]),
+        ("Next step", [("Aurora", "15-min call", False), ("Lumen", "new quote", False)]),
+    ]),
+    ("project-tracker", (240, 178, 74), [
+        ("Due this week", [("Logo files", "Oct 17", True), ("Review call", "Oct 22", False)]),
+        ("Health", [("Aurora", "On track", True), ("Saffron", "At risk", False)]),
+        ("Scope changes", [("Approved", "+$475", True), ("Waiting", "$380", False)]),
+        ("Time", [("Logged", "64 h", False), ("Billable", "93%", True)]),
+    ]),
+    ("pitch-kit", (190, 140, 245), [
+        ("Packages", [("Good", "$2,500", False), ("Better ★", "$6,500", True)]),
+        ("Follow up", [("Aurora", "Oct 17", True), ("Lumen Café", "Oct 19", False)]),
+        ("Proposals", [("Accepted", "2", True), ("Open", "2", False)]),
+        ("Proof", [("Clinic", "3× bookings", True), ("Bistro", "+18% AOV", False)]),
+    ]),
+    ("second-brain", (120, 205, 190), [
+        ("Inbox", [("To process", "3", True), ("Filed", "4", False)]),
+        ("Projects", [("Portfolio site", "Nov 15", True), ("Run a 10k", "Mar 1", False)]),
+        ("Areas", [("Clients & Work", "Weekly", False), ("Money", "Monthly", False)]),
+        ("Weekly review", [("Inbox cleared", "✓", True), ("Top 3 set", "✓", True)]),
+    ]),
+    ("client-portal", (110, 160, 240), [
+        ("Coming up", [("Logo v2 review", "Oct 20", True), ("Finals", "Oct 30", False)]),
+        ("For review", [("Logo refinement", "v2", True), ("Brand guide", "draft", False)]),
+        ("Feedback", [("Warmer palette?", "open", True), ("Typography", "done", False)]),
+        ("Invoices", [("Paid", "$5,000", True), ("Next due", "Nov 5", False)]),
+    ]),
+    ("student-os", (246, 160, 100), [
+        ("Due this week", [("Read ch. 4–6", "3 days", True), ("Problem set 5", "4 days", False)]),
+        ("Next exams", [("Calculus quiz", "8 days", True), ("Bio midterm", "19 days", False)]),
+        ("Grades", [("GPA", "3.3", True), ("English Lit", "A−", False)]),
+        ("Study time", [("This week", "2h 20m", True), ("Calculus", "75 min", False)]),
+    ]),
 ]
+
 
 def rounded(d, box, r, fill, outline=None, width=1):
     d.rounded_rectangle(box, radius=r, fill=fill, outline=outline, width=width)
 
-def make(slug, name, tagline, cards, out_dir):
+
+def text_right(d, x_right, y, txt, f, fill):
+    w = d.textlength(txt, font=f)
+    d.text((x_right - w, y), txt, font=f, fill=fill)
+
+
+def make(slug, accent, cards, out_dir):
     img = Image.new("RGB", (W, H), BG)
-    # soft green glow top-right
     glow = Image.new("RGB", (W, H), BG)
     gd = ImageDraw.Draw(glow)
-    gd.ellipse((900, -350, 1750, 450), fill=(18, 70, 48))
-    gd.ellipse((-300, 380, 500, 1000), fill=(12, 40, 30))
+    ar, ag, ab = accent
+    gd.ellipse((950, -350, 1800, 450), fill=(18, 70, 48))
+    gd.ellipse((-200, 300, 600, 900), fill=(int(ar * .18), int(ag * .18), int(ab * .18)))
     img = Image.blend(img, glow.filter(ImageFilter.GaussianBlur(140)), 1.0)
     d = ImageDraw.Draw(img)
-    # dotted grid
     for x in range(0, W, 30):
         for y in range(0, H, 30):
             d.point((x, y), fill=(22, 44, 37))
 
-    # No title/tagline: the Notion page already shows them right below the cover.
-    # Keep content in the visible band (y ~185-390); leave bottom-left free for the icon.
-    cw, ch, gap = 250, 150, 22
+    cw, ch, gap = 262, 158, 20
     total = 4 * cw + 3 * gap
     cx = (W - total) // 2 + 60
-    cy = 215
-    d.text((cx, 178), "TEMPLYWORKS", font=font(18, True), fill=GREEN_LT)
-    for i, label in enumerate(cards):
+    cy = 214
+    d.text((cx, 178), "TEMPLYWORKS", font=font(18, True), fill=(120, 201, 150))
+
+    f_title = font(20, True)
+    f_label = font(17)
+    f_value = font(19, True)
+    for i, (title, rows) in enumerate(cards):
         bx = cx + i * (cw + gap)
         by = cy
-        rounded(d, (bx, by, bx + cw, by + ch), 18, CARD, outline=(34, 72, 60), width=2)
-        d.text((bx + 20, by + 18), label, font=font(21, True), fill=TEXT)
-        for k in range(3):
-            yy = by + 62 + k * 26
-            rounded(d, (bx + 20, yy, bx + 20 + (160 - k * 40), yy + 10), 5, CARD2)
-            d.ellipse((bx + cw - 36, yy - 2, bx + cw - 22, yy + 12),
-                      fill=GREEN if (i + k) % 3 else GREEN_LT)
-    path = os.path.join(out_dir, f"cover-{slug}-v3.png")
+        rounded(d, (bx, by, bx + cw, by + ch), 18, CARD, outline=CARD_LINE, width=2)
+        rounded(d, (bx + 20, by + 22, bx + 25, by + 42), 2, accent)
+        d.text((bx + 34, by + 19), title, font=f_title, fill=TEXT)
+        for k, (label, value, hi) in enumerate(rows):
+            yy = by + 68 + k * 40
+            if k:
+                d.line((bx + 20, yy - 10, bx + cw - 20, yy - 10), fill=CARD_LINE, width=1)
+            d.text((bx + 20, yy), label, font=f_label, fill=MUTED)
+            text_right(d, bx + cw - 20, yy - 1, value, f_value, accent if hi else TEXT)
+    path = os.path.join(out_dir, f"cover-{slug}-v4.png")
     img.save(path, optimize=True)
     return path
+
 
 if __name__ == "__main__":
     out = os.path.dirname(os.path.abspath(__file__))
