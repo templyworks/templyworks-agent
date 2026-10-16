@@ -135,7 +135,7 @@ Skip `body` in list queries — some pages (GDPR/Consentmo) are huge and truncat
 | Client Portal | client-portal-notion-workspace-for-freelancers-clients | 16246058058077 |
 | Pitch Kit | pitch-kit-notion-proposals-services-library | 16246061105501 |
 | Custom Template Request | custom-template-request-your-personal-notion-system | 16272542630237 |
-| Abitur System | abitur-system-notion-command-center-for-the-german-oberstufe | 16456472691037 |
+| Abitur System | abitur-system-notion-command-center-for-the-german-oberstufe | 16642871951709 |
 | Client Machine (bundle) | client-machine-notion-bundle | 16467109019997 |
 | Solo Ops (bundle) | solo-ops-notion-bundle | 16467110953309 |
 

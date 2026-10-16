@@ -37,7 +37,7 @@ Full theme workflow: `dev-toolkit/theme-editing.md`.
 | Pitch Kit | $19 | pitch-kit-notion-proposals-services-library |
 | Second Brain | $19 | second-brain-notion-para-knowledge-system |
 | Client Portal | $19 | client-portal-notion-workspace-for-freelancers-clients |
-| Abitur System → becoming Student OS (product 16456472691037) | $19 | abitur-system-notion-command-center-for-the-german-oberstufe (change handle + add redirect at swap) |
+| Abitur System → becoming Student OS (product 16642871951709) | $19 | abitur-system-notion-command-center-for-the-german-oberstufe (change handle + add redirect at swap) |
 | Client Machine (bundle) | $44 | client-machine-notion-bundle |
 | Solo Ops (bundle) | $44 | solo-ops-notion-bundle |
 | Custom Template Request | $149 | custom-template-request-your-personal-notion-system |

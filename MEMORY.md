@@ -30,4 +30,11 @@ Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
 - Sample data fixed: relations were empty (Client Pipeline, Project Tracker, Pitch Kit) → linked; stale June dates → Aug–Oct 2026; Finance HQ now has 3 months of transactions; internal Templyworks text removed from Second Brain.
 - Boards: empty "No ..." groups hidden, stage order fixed (Pitch Kit, Project Tracker tasks, Class Schedule days).
 - Delivery app = Shopify Digital Products (docs said EDP — fixed).
-- Pending: Kevin publishes Student OS → swap Shopify product 16456472691037; new descriptions, PDFs, images/covers; store test.
+- Pending: Kevin publishes Student OS → swap Shopify product 16642871951709; new descriptions, PDFs, images/covers; store test.
+
+## 2026-10-16 — Product overhaul
+- Student OS = Shopify product 16642871951709 (handle student-os-notion-student-planner, delivers https://cute-herring-2b2.notion.site/Student-OS-3fb6bb63c14f81fca1dffb5272690f0d). Old Abitur product 16456472691037 ARCHIVED (Digital Products link could not be edited via API). Old Abitur URL 301 → Student OS. Abitur Notion master in Trash.
+- All 7 products: Amazon-style descriptions (product-images/descriptions.py), new 4-image sets (product-images/out/*-v2/v3.png), SEO titles/descriptions.
+- Bundles: old single heroes replaced with new v2 heroes; bundle's own hero/inside images still old style.
+- Finance HQ Budgets: "Spent" is now a rounded formula over hidden rollup "Spent (sum)".
+- TODO (UI only): Pitch Kit Services board group order Good → Better → Best (currently Best first; "No Tier" hidden).
