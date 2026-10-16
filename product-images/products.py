@@ -71,7 +71,7 @@ PRODUCTS = [
                    ("💬", "Feedback form", "Clients leave feedback in one place instead of long email threads."),
                    ("🧾", "Invoices", "Amounts, due dates and paid status, always up to date.")],
          included=["Project-at-a-glance header", "Milestones timeline", "Deliverables board",
-                   "Feedback & blockers + form", "Meeting notes", "Invoice tracker", "Freelancer setup guide"]),
+                   "Feedback & blockers + form", "Meeting notes", "Invoice tracker", "Freelancer setup guide"], delivery="Instant — duplicate link, guide inside"),
     dict(slug="student-os", name="Student OS", accent=(246, 160, 100),
          hero=[("Your school year,", None), ("under control.", "under control")],
          sub="Classes, assignments, exams, grades and GPA in one Notion system. For high school and college.",
@@ -84,5 +84,5 @@ PRODUCTS = [
                    ("⏱️", "Study sessions", "See how much time each class really gets.")],
          included=["Courses with grade & GPA", "Assignments (table, board, calendar)", "Exams + revision plan",
                    "Grades", "Study sessions", "Class schedule", "Notes & habit tracker"],
-         region="GPA (4.0) and % — edit for any school system"),
+         region="GPA (4.0) and % — edit for any school system", delivery="Instant — duplicate link, guide inside"),
 ]

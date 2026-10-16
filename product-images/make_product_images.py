@@ -225,7 +225,7 @@ def img_included(p):
     # right: specs
     rx = x0 + 1040 + 32
     specs = [("Works on", "Notion Free, Plus & Business"), ("Devices", "Desktop, web & mobile app"),
-             ("Delivery", "Instant — duplicate link + Quick-Start PDF"), ("Currency / region", p.get("region", "Any — fully editable")),
+             ("Delivery", p.get("delivery", "Instant — duplicate link + Quick-Start PDF")), ("Currency / region", p.get("region", "Any — fully editable")),
              ("Support", "info@templyworks.com")]
     d.rounded_rectangle((rx, y0, S - 128, 1840), 40, fill=CARD, outline=LINE, width=2)
     d.text((rx + 56, y0 + 50), "Details", font=font("b", 52), fill=TEXT)
