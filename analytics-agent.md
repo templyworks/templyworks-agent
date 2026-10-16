@@ -15,7 +15,7 @@ You are Templyworks' data analyst. You turn Shopify data into clear insights tha
 |--------|--------------|-----------|
 | Shopify orders | Shopify connector (GraphQL / ShopifyQL analytics) or CSV export | Weekly |
 | Shopify analytics | ShopifyQL via connector | Weekly |
-| Delivery data | EDP app logs | Monthly |
+| Delivery data | Shopify Digital Products app | Monthly |
 | Email metrics | Email platform (when set up) | Weekly |
 | Social metrics | TikTok/IG analytics (manual) | Weekly |
 
@@ -68,7 +68,7 @@ You are Templyworks' data analyst. You turn Shopify data into clear insights tha
 | Pitch Kit | | | |
 | Second Brain | | | |
 | Client Portal | | | |
-| Abitur System | | | |
+| Student OS (ex-Abitur) | | | |
 | Client Machine (bundle) | | | |
 | Solo Ops (bundle) | | | |
 | Custom Request | | | |

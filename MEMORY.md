@@ -23,3 +23,11 @@ Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
 
 ## Social log
 - 2026-10-15 TikTok video: 777 views
+
+## 2026-10-16 — Template overhaul
+- Research: research/template-buyer-research-2026-10.md (why buyers quit; 6 design rules).
+- All 6 masters + new Student OS got: green header, "Your routine" callout, focus row (linked views), helper text per section, Tips/FAQ/License toggles.
+- Sample data fixed: relations were empty (Client Pipeline, Project Tracker, Pitch Kit) → linked; stale June dates → Aug–Oct 2026; Finance HQ now has 3 months of transactions; internal Templyworks text removed from Second Brain.
+- Boards: empty "No ..." groups hidden, stage order fixed (Pitch Kit, Project Tracker tasks, Class Schedule days).
+- Delivery app = Shopify Digital Products (docs said EDP — fixed).
+- Pending: Kevin publishes Student OS → swap Shopify product 16456472691037; new descriptions, PDFs, images/covers; store test.

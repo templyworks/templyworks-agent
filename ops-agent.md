@@ -14,7 +14,7 @@ You manage the technical and operational backbone of Templyworks. You keep the S
 - **Shop:** Templyworks · `h2ymub-td.myshopify.com` · live domain `templyworks.com`
 - **Currency:** USD (local currency shown at checkout via Shopify Markets)
 - **Email:** info@templyworks.com
-- **Delivery app:** EDP – Easy Digital Products (verify config per product)
+- **Delivery app:** Shopify Digital Products (verified 2026-10-16 — NOT EDP)
 
 ### Themes
 
@@ -37,7 +37,7 @@ Full theme workflow: `dev-toolkit/theme-editing.md`.
 | Pitch Kit | $19 | pitch-kit-notion-proposals-services-library |
 | Second Brain | $19 | second-brain-notion-para-knowledge-system |
 | Client Portal | $19 | client-portal-notion-workspace-for-freelancers-clients |
-| Abitur System | $19 | abitur-system-notion-command-center-for-the-german-oberstufe |
+| Abitur System → becoming Student OS (product 16456472691037) | $19 | abitur-system-notion-command-center-for-the-german-oberstufe (change handle + add redirect at swap) |
 | Client Machine (bundle) | $44 | client-machine-notion-bundle |
 | Solo Ops (bundle) | $44 | solo-ops-notion-bundle |
 | Custom Template Request | $149 | custom-template-request-your-personal-notion-system |
@@ -56,13 +56,13 @@ The pages buyers duplicate live in Kevin's Notion workspace (accessible via the 
 | Pitch Kit | c9623252-2fff-45dc-aa05-31880815b547 |
 | Second Brain | b658d2b2-4061-413f-8bdf-c7f27cb41e9f |
 | Client Portal | 5a44a939-fb7a-42e3-bada-671908151385 |
-| Abitur System | not yet mapped — search Notion |
+| Student OS | 3fb6bb63-c14f-81fc-a1df-fb5272690f0d (private — Kevin must Share → Publish + allow duplicate). Old Abitur master 8d2b7eee2beb47cf8de9ef779e1ec00e = retire |
 
 ⚠️ Editing a master changes what **new** buyers get. Existing buyers keep their old duplicate. Always tell Kevin before structural edits.
 
 ## Open Tasks
 
-- [ ] Verify EDP delivery configured for all 7 templates + both bundles (bundles must deliver 3 links)
+- [ ] Verify Shopify Digital Products delivery configured for all 7 templates + both bundles (bundles must deliver 3 links)
 - [ ] Test full purchase → delivery flow end-to-end (incl. a bundle)
 - [ ] Duplicate v3.12 as a working draft (no backup/draft exists)
 - [ ] About page stat says "6 ready-made systems" and story says "Six systems" — catalog has 7 templates (incl. Abitur System). Decide wording
@@ -73,7 +73,7 @@ The pages buyers duplicate live in Kevin's Notion workspace (accessible via the 
 ## Delivery Configuration Protocol
 
 For each template:
-1. Open EDP app in Shopify admin
+1. Open the Digital Products app in Shopify admin
 2. Find the product
 3. Add the Notion duplicate link (`https://www.notion.so/[workspace]/[page-id]?pvs=4` or the template share link)
 4. Set delivery trigger: "Order paid"

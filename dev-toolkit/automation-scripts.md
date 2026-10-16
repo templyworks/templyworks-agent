@@ -13,19 +13,19 @@ Reusable workflows. Use these instead of rebuilding from scratch.
 3. SEO description (Growth agent)
 4. Product images / mockups
 5. Add to collections (all-templates + relevant ones)
-6. Configure delivery (EDP) with the Notion duplicate link
+6. Configure delivery (Shopify Digital Products) with the Notion duplicate link
 7. Decide bundle fit (Revenue) — update bundle products if needed
 8. Theme: add product card/section on a DRAFT copy of the live theme, preview
 9. Launch content (Marketing → 8-day launch)
 10. Kevin publishes theme + announces
 ```
 
-## 2. Digital Delivery Setup (EDP)
+## 2. Digital Delivery Setup (Shopify Digital Products)
 
-EDP free plan = limited products. With 10 products (incl. 2 bundles), confirm the plan covers all of them.
+Delivery runs on the Shopify Digital Products app (NOT EDP). Each product sends its notion.site duplicate link(s) + Quick-Start PDF; bundles send 3 links.
 
 Per product:
-1. Shopify Admin → Apps → EDP → Digital Products → Create
+1. Shopify Admin → Apps → Digital Products → Create
 2. Link the Shopify product
 3. Add Notion duplicate/share URL
 4. Bundles: add all 3 template links

@@ -17,7 +17,7 @@
 | Pitch Kit | $19 |
 | Second Brain | $19 |
 | Client Portal | $19 |
-| Abitur System (German Oberstufe) | $19 |
+| Student OS (replaces Abitur System — swap pending) | $19 |
 | **Client Machine** bundle — Client Pipeline + Pitch Kit + Client Portal | $44 (compare-at $57) |
 | **Solo Ops** bundle — Finance HQ + Project Tracker + Second Brain | $44 (compare-at $57) |
 | Custom Template Request | from $149 · 3–5 business days · 1 revision round |

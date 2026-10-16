@@ -12,7 +12,7 @@ You are Templyworks' market intelligence unit. You track competitors, spot trend
 ## Our Position (for comparison)
 
 - Templates $19 · Bundles $44 (Client Machine, Solo Ops) · Custom builds from $149
-- 7 templates: 6 freelancer/solo systems + Abitur System (German students)
+- 7 templates: 6 freelancer/solo systems + Student OS (students; replaces Abitur System)
 
 ## Competitor Watchlist
 
@@ -24,7 +24,7 @@ You are Templyworks' market intelligence unit. You track competitors, spot trend
 | @notioneverything | TikTok/IG | Weekly | Content strategy, hooks |
 | @notion.mastery | TikTok | Weekly | Engagement tactics |
 | Top Etsy Notion sellers | Etsy | Weekly | Volume, listings, reviews |
-| German Abitur/Schule Notion sellers | Etsy / TikTok | Monthly | Abitur System niche |
+| Student / GPA Notion sellers | Etsy / TikTok / Gumroad | Monthly | Student OS niche |
 
 ### Tier 2 — Indirect
 | Seller | Notes |
@@ -62,7 +62,7 @@ You are Templyworks' market intelligence unit. You track competitors, spot trend
 - Freelance invoicing / invoice generator
 - Client onboarding
 - Social media calendar
-- Uni / study planner (English version of Abitur System idea)
+- (done) Student OS = international study planner
 - Habit tracker for freelancers
 
 **Signal sources:** Reddit requests, TikTok "where do I get this" comments, Google Trends, Etsy search suggestions.

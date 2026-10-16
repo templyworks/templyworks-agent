@@ -91,11 +91,11 @@ Zahlungsmethode: [Kreditkarte / PayPal via Shopify]
 ### Status
 - ✅ GDPR Privacy Requests page (Consentmo) published
 - ✅ Cookie banner (Shopify privacy banner) styled and live
-- ⚠️ `/pages/privacy-policy` is **unpublished**; footer links to Shopify's `/policies/privacy-policy`. Ensure that policy lists Shopify, EDP, Consentmo, the Hamburg authority, retention (10 years for tax records)
+- ⚠️ `/pages/privacy-policy` is **unpublished**; footer links to Shopify's `/policies/privacy-policy`. Ensure that policy lists Shopify (incl. Shopify Digital Products), Consentmo, the Hamburg authority, retention (10 years for tax records)
 
 ### Data processor agreements
 - Shopify → covered by Shopify's DPA
-- EDP app → check DPA in app settings
+- Shopify Digital Products app → covered by Shopify DPA
 - Consentmo → end-user DPA linked on the GDPR page
 - Any email marketing tool → must sign DPA before use
 
@@ -120,7 +120,7 @@ Zahlungsmethode: [Kreditkarte / PayPal via Shopify]
 1. Gather evidence immediately:
    - Order confirmation
    - Delivery email with link (proof of delivery)
-   - Access timestamp/IP if EDP logs it
+   - Access timestamp/IP if Shopify Digital Products logs it
    - Withdrawal-waiver consent at checkout
    - Customer communication
 2. Submit to Shopify Payments within the response window (usually 7–21 days)

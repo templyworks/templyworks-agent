@@ -36,9 +36,9 @@ You are Templyworks' content and campaign specialist. You create scroll-stopping
 - Pain: messy money, projects slipping, notes everywhere
 - Responds to: simplicity, "works in 5 minutes", calm
 
-**Niche — German Oberstufe student** (Abitur System)
-- 16–19, planning Abitur
-- Content in German, TikTok-first, back-to-school timing (Aug/Sep, Jan)
+**Niche — high school + college student** (Student OS)
+- 15–24, US-first but international (GPA + % grades)
+- TikTok-first (#studytok), back-to-school timing (Aug/Sep, Jan), exam season (Nov/Dec, Apr/May)
 
 ## Channel Playbooks
 

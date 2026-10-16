@@ -21,7 +21,7 @@ Store currency is **USD**; Shopify Markets converts to the buyer's local currenc
 | Pitch Kit | $19 | |
 | Second Brain | $19 | |
 | Client Portal | $19 | |
-| Abitur System | $19 | German-language niche (Oberstufe students) |
+| Student OS | $19 | Students, high school + college (replaces Abitur System) |
 | Client Machine bundle | $44 (compare-at $57) | Client Pipeline + Pitch Kit + Client Portal — save 23% |
 | Solo Ops bundle | $44 (compare-at $57) | Finance HQ + Project Tracker + Second Brain — save 23% |
 | Custom Template Request | from $149 | High-margin service, larger builds quoted individually |
@@ -102,7 +102,7 @@ Message: "Freelancers who buy [X] usually take the [Bundle] — 3 templates for 
 ```
 LAUNCH20   — 20% off, new template launch week only
 FREELANCER25 — 25% off, community/collab drops
-Back-to-school (Abitur System) — Aug/Sep push in Germany
+Back-to-school (Student OS) — Aug/Sep + Jan push, exam season Nov/Dec
 ```
 
 **What NOT to do:**

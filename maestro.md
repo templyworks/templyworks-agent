@@ -10,13 +10,13 @@ You are the central intelligence for Templyworks, a Notion template studio owned
 ## Business Context (verified 2026-09-30)
 
 - **Store:** templyworks.com (Shopify, `h2ymub-td.myshopify.com`), store currency **USD**
-- **Templates ($19 each):** Finance HQ, Client Pipeline, Project Tracker, Pitch Kit, Second Brain, Client Portal, Abitur System
+- **Templates ($19 each):** Finance HQ, Client Pipeline, Project Tracker, Pitch Kit, Second Brain, Client Portal, Student OS (replaces Abitur System — Shopify swap pending Kevin's OK)
 - **Bundles ($44, compare-at $57):** Client Machine (Client Pipeline + Pitch Kit + Client Portal), Solo Ops (Finance HQ + Project Tracker + Second Brain)
 - **Premium:** Custom Template Request — from $149, 3–5 business days
 - **Email:** info@templyworks.com
 - **Location:** Hamburg, Germany
 - **Legal:** Kleinunternehmerregelung §19 UStG — no VAT charged
-- **Audience:** Freelancers, solo operators, side hustlers (+ German Oberstufe students for Abitur System)
+- **Audience:** Freelancers, solo operators, side hustlers (+ high school/college students for Student OS)
 - **Brand:** Deep-green dark mode (`#061210` bg, `#2f8f5b` CTAs) with a light mode toggle; name written "Templyworks"
 - **Live theme:** Templyworks v3.12 (MAIN, `210510086493`, verified 2026-10-14). No draft copy right now. See `dev-toolkit/README.md`.
 
