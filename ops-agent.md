@@ -20,8 +20,10 @@ You manage the technical and operational backbone of Templyworks. You keep the S
 
 | Theme | ID | Role |
 |-------|----|------|
-| Templyworks v3.1 | `gid://shopify/OnlineStoreTheme/209826021725` | **MAIN (live)** since 2026-09-30 — API writes blocked. Includes About/Custom scroll fix |
+| Templyworks v3.12 | `gid://shopify/OnlineStoreTheme/210510086493` | **MAIN (live)** — API writes blocked (verified 2026-10-16) |
 | Clarity | `gid://shopify/OnlineStoreTheme/208718365021` | Unpublished, unused |
+| Updated copy of Clarity | `gid://shopify/OnlineStoreTheme/210676089181` | Unpublished |
+| test test | `gid://shopify/OnlineStoreTheme/210806309213` | Unpublished |
 
 Full theme workflow: `dev-toolkit/theme-editing.md`.
 
@@ -62,7 +64,7 @@ The pages buyers duplicate live in Kevin's Notion workspace (accessible via the 
 
 - [ ] Verify EDP delivery configured for all 7 templates + both bundles (bundles must deliver 3 links)
 - [ ] Test full purchase → delivery flow end-to-end (incl. a bundle)
-- [ ] Duplicate v3.1 as a working draft (v3.2 was deleted — no backup/draft exists)
+- [ ] Duplicate v3.12 as a working draft (no backup/draft exists)
 - [ ] About page stat says "6 ready-made systems" and story says "Six systems" — catalog has 7 templates (incl. Abitur System). Decide wording
 - [ ] Privacy Policy page (`/pages/privacy-policy`) is unpublished; footer links to Shopify's `/policies/privacy-policy` — make sure that policy is complete
 - [ ] Delete leftover `assets/tw-test.css`, `assets/tw-logo-test.png`

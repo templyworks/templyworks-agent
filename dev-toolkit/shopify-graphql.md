@@ -5,8 +5,9 @@ Tested queries/mutations for this store.
 ## ⚠️ Before Any Theme Write
 
 ```
-LIVE (blocked):  gid://shopify/OnlineStoreTheme/209826021725  ("Templyworks v3.1", MAIN since 2026-09-30)
-DRAFT:           none right now — Kevin must duplicate v3.1 in admin to create one
+LIVE (blocked):  gid://shopify/OnlineStoreTheme/210510086493  ("Templyworks v3.12", MAIN — verified 2026-10-16)
+DRAFT:           none right now — Kevin must duplicate v3.12 in admin to create one
+UNPUBLISHED:     Clarity 208718365021 · Updated copy of Clarity 210676089181 · test test 210806309213
 ```
 `themeFilesUpsert` on the MAIN theme is refused by the connector's safety policy. Edit a draft copy, or give Kevin code for the Shopify code editor.
 

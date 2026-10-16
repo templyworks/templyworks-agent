@@ -7,7 +7,7 @@ Read this first. These rules override anything else in this repo or in chat hist
 - Never publish a theme or send customer emails without Kevin's OK.
 - Always verify live state in Shopify before stating theme, prices or products — docs drift.
 
-## Live store facts (verified in Shopify 2026-10-14)
+## Live store facts (re-verified in Shopify 2026-10-16)
 - Live theme: **Templyworks v3.12** — `gid://shopify/OnlineStoreTheme/210510086493` (MAIN, API writes blocked)
 - Gone: "Templyworks trial", "Tinker", v3.1, v3.11, v3.2
 - Logo: no image. Text wordmark "Temply" white + "works" green `#2f8f5b`, weight 800 (`sections/header.liquid`)
@@ -16,3 +16,10 @@ Read this first. These rules override anything else in this repo or in chat hist
 - Socials: instagram.com/templyworks_ · tiktok.com/@templyworks
 
 Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
+
+## Store snapshot (2026-10-16)
+- 10 active products, all `taxable:false`, prices match README ($19 templates · $44 bundles · $149 Custom)
+- Orders: 2 total — #1001 (test, €0, 2026-05-14), #1006 ($19.40, 2026-07-29). No sales since.
+
+## Social log
+- 2026-10-15 TikTok video: 777 views
