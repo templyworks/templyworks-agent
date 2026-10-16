@@ -54,31 +54,29 @@ def make(slug, name, tagline, cards, out_dir):
         for y in range(0, H, 30):
             d.point((x, y), fill=(22, 44, 37))
 
-    # left text block (kept inside the centre band Notion shows on narrow screens)
-    x0 = 140
-    d.text((x0, 150), "TEMPLYWORKS", font=font(22, True), fill=GREEN_LT)
-    d.rectangle((x0, 186, x0 + 56, 190), fill=GREEN)
-    d.text((x0 - 4, 215), name, font=font(84, True), fill=TEXT)
-    d.text((x0, 330), tagline, font=font(28), fill=MUTED)
-    rounded(d, (x0, 395, x0 + 262, 445), 25, GREEN)
-    d.text((x0 + 24, 404), "Notion template", font=font(24, True), fill=(255, 255, 255))
+    # Notion crops covers to a centre band (~y 170-430) and puts the page icon
+    # bottom-left, so keep everything in y 185-375 and nothing low on the left.
+    x0 = 150
+    d.text((x0, 188), "TEMPLYWORKS", font=font(20, True), fill=GREEN_LT)
+    d.rectangle((x0, 218, x0 + 48, 221), fill=GREEN)
+    d.text((x0 - 3, 232), name, font=font(72, True), fill=TEXT)
+    d.text((x0, 322), tagline, font=font(26), fill=MUTED)
 
-    # right: mock UI cards
-    cx, cy = 900, 120
-    cw, ch, gap = 230, 160, 24
+    # right: 2x2 mock cards, vertically centred
+    cw, ch, gap = 176, 84, 14
+    cx = W - 120 - 2 * cw - gap
+    cy = 205
     for i, label in enumerate(cards):
-        col, row = i % 2, i // 2
-        bx = cx + col * (cw + gap)
-        by = cy + row * (ch + gap)
-        rounded(d, (bx, by, bx + cw, by + ch), 18, CARD, outline=(34, 72, 60), width=2)
-        d.text((bx + 20, by + 18), label, font=font(22, True), fill=TEXT)
-        # fake rows
-        for k in range(3):
-            yy = by + 62 + k * 28
-            rounded(d, (bx + 20, yy, bx + 20 + (150 - k * 30), yy + 12), 6, CARD2)
-            d.ellipse((bx + cw - 38, yy - 2, bx + cw - 22, yy + 14),
+        bx = cx + (i % 2) * (cw + gap)
+        by = cy + (i // 2) * (ch + gap)
+        rounded(d, (bx, by, bx + cw, by + ch), 14, CARD, outline=(34, 72, 60), width=2)
+        d.text((bx + 14, by + 12), label, font=font(17, True), fill=TEXT)
+        for k in range(2):
+            yy = by + 44 + k * 20
+            rounded(d, (bx + 14, yy, bx + 14 + (110 - k * 30), yy + 9), 4, CARD2)
+            d.ellipse((bx + cw - 28, yy - 2, bx + cw - 16, yy + 10),
                       fill=GREEN if (i + k) % 3 else GREEN_LT)
-    path = os.path.join(out_dir, f"cover-{slug}.png")
+    path = os.path.join(out_dir, f"cover-{slug}-v2.png")
     img.save(path, optimize=True)
     return path
 
