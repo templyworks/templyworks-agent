@@ -38,7 +38,7 @@ TEMPLATES = [
         ("Won", [("Nordic Health", "$14,000", True), ("This year", "1", False)]),
         ("Next step", [("Aurora", "15-min call", False), ("Lumen", "new quote", False)]),
     ]),
-    ("project-tracker", (240, 178, 74), [
+    ("project-tracker", (236, 196, 72), [
         ("Due this week", [("Logo files", "Oct 17", True), ("Review call", "Oct 22", False)]),
         ("Health", [("Aurora", "On track", True), ("Saffron", "At risk", False)]),
         ("Scope changes", [("Approved", "+$475", True), ("Waiting", "$380", False)]),
@@ -50,13 +50,13 @@ TEMPLATES = [
         ("Proposals", [("Accepted", "2", True), ("Open", "2", False)]),
         ("Proof", [("Clinic", "3× bookings", True), ("Bistro", "+18% AOV", False)]),
     ]),
-    ("second-brain", (120, 205, 190), [
+    ("second-brain", (240, 140, 185), [
         ("Inbox", [("To process", "3", True), ("Filed", "4", False)]),
         ("Projects", [("Portfolio site", "Nov 15", True), ("Run a 10k", "Mar 1", False)]),
         ("Areas", [("Clients & Work", "Weekly", False), ("Money", "Monthly", False)]),
         ("Weekly review", [("Inbox cleared", "✓", True), ("Top 3 set", "✓", True)]),
     ]),
-    ("client-portal", (110, 160, 240), [
+    ("client-portal", (214, 160, 112), [
         ("Coming up", [("Logo v2 review", "Oct 20", True), ("Finals", "Oct 30", False)]),
         ("For review", [("Logo refinement", "v2", True), ("Brand guide", "draft", False)]),
         ("Feedback", [("Warmer palette?", "open", True), ("Typography", "done", False)]),
@@ -113,7 +113,7 @@ def make(slug, accent, cards, out_dir):
             rounded(d, (bx + 20, yy, bx + 20 + (170 - k * 45), yy + 10), 5, (24, 52, 44))
             a = accent if (i + k) % 3 else tuple(min(255, int(c * 1.25)) for c in accent)
             d.ellipse((bx + cw - 36, yy - 2, bx + cw - 22, yy + 12), fill=a)
-    path = os.path.join(out_dir, f"cover-{slug}-v5.png")
+    path = os.path.join(out_dir, f"cover-{slug}-v6.png")
     img.save(path, optimize=True)
     return path
 
