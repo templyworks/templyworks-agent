@@ -35,6 +35,7 @@ Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
 ## 2026-10-16 — Product overhaul
 - Student OS = Shopify product 16642871951709 (handle student-os-notion-student-planner, delivers https://cute-herring-2b2.notion.site/Student-OS-3fb6bb63c14f81fca1dffb5272690f0d). Old Abitur product 16456472691037 ARCHIVED (Digital Products link could not be edited via API). Old Abitur URL 301 → Student OS. Abitur Notion master in Trash.
 - All 7 products: Amazon-style descriptions (product-images/descriptions.py), new 4-image sets (product-images/out/*-v2/v3.png), SEO titles/descriptions.
-- Bundles: old single heroes replaced with new v2 heroes; bundle's own hero/inside images still old style.
+- Bundles: new v2 hero + inside images (make_bundle_images.py) + Amazon-style descriptions; then the 3 single heroes.
 - Finance HQ Budgets: "Spent" is now a rounded formula over hidden rollup "Spent (sum)".
-- TODO (UI only): Pitch Kit Services board group order Good → Better → Best (currently Best first; "No Tier" hidden).
+- Pitch Kit Services board view renamed "Best / Better / Good" (API cannot reorder manual groups; "No Tier" hidden).
+- Quick-Start PDFs in Digital Products are older versions; replacing needs upload in Shopify admin (file picker).
