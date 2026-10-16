@@ -86,7 +86,7 @@ def make(slug, accent, cards, out_dir):
     gd = ImageDraw.Draw(glow)
     ar, ag, ab = accent
     gd.ellipse((950, -350, 1800, 450), fill=(18, 70, 48))
-    gd.ellipse((-200, 300, 600, 900), fill=(int(ar * .18), int(ag * .18), int(ab * .18)))
+    gd.ellipse((150, 60, 1000, 560), fill=(int(ar * .26), int(ag * .26), int(ab * .26)))
     img = Image.blend(img, glow.filter(ImageFilter.GaussianBlur(140)), 1.0)
     d = ImageDraw.Draw(img)
     for x in range(0, W, 30):
@@ -108,13 +108,12 @@ def make(slug, accent, cards, out_dir):
         rounded(d, (bx, by, bx + cw, by + ch), 18, CARD, outline=CARD_LINE, width=2)
         rounded(d, (bx + 20, by + 22, bx + 25, by + 42), 2, accent)
         d.text((bx + 34, by + 19), title, font=f_title, fill=TEXT)
-        for k, (label, value, hi) in enumerate(rows):
-            yy = by + 68 + k * 40
-            if k:
-                d.line((bx + 20, yy - 10, bx + cw - 20, yy - 10), fill=CARD_LINE, width=1)
-            d.text((bx + 20, yy), label, font=f_label, fill=MUTED)
-            text_right(d, bx + cw - 20, yy - 1, value, f_value, accent if hi else TEXT)
-    path = os.path.join(out_dir, f"cover-{slug}-v4.png")
+        for k in range(3):
+            yy = by + 70 + k * 26
+            rounded(d, (bx + 20, yy, bx + 20 + (170 - k * 45), yy + 10), 5, (24, 52, 44))
+            a = accent if (i + k) % 3 else tuple(min(255, int(c * 1.25)) for c in accent)
+            d.ellipse((bx + cw - 36, yy - 2, bx + cw - 22, yy + 12), fill=a)
+    path = os.path.join(out_dir, f"cover-{slug}-v5.png")
     img.save(path, optimize=True)
     return path
 
