@@ -54,29 +54,24 @@ def make(slug, name, tagline, cards, out_dir):
         for y in range(0, H, 30):
             d.point((x, y), fill=(22, 44, 37))
 
-    # Notion crops covers to a centre band (~y 170-430) and puts the page icon
-    # bottom-left, so keep everything in y 185-375 and nothing low on the left.
-    x0 = 150
-    d.text((x0, 188), "TEMPLYWORKS", font=font(20, True), fill=GREEN_LT)
-    d.rectangle((x0, 218, x0 + 48, 221), fill=GREEN)
-    d.text((x0 - 3, 232), name, font=font(72, True), fill=TEXT)
-    d.text((x0, 322), tagline, font=font(26), fill=MUTED)
-
-    # right: 2x2 mock cards, vertically centred
-    cw, ch, gap = 176, 84, 14
-    cx = W - 120 - 2 * cw - gap
-    cy = 205
+    # No title/tagline: the Notion page already shows them right below the cover.
+    # Keep content in the visible band (y ~185-390); leave bottom-left free for the icon.
+    cw, ch, gap = 250, 150, 22
+    total = 4 * cw + 3 * gap
+    cx = (W - total) // 2 + 60
+    cy = 215
+    d.text((cx, 178), "TEMPLYWORKS", font=font(18, True), fill=GREEN_LT)
     for i, label in enumerate(cards):
-        bx = cx + (i % 2) * (cw + gap)
-        by = cy + (i // 2) * (ch + gap)
-        rounded(d, (bx, by, bx + cw, by + ch), 14, CARD, outline=(34, 72, 60), width=2)
-        d.text((bx + 14, by + 12), label, font=font(17, True), fill=TEXT)
-        for k in range(2):
-            yy = by + 44 + k * 20
-            rounded(d, (bx + 14, yy, bx + 14 + (110 - k * 30), yy + 9), 4, CARD2)
-            d.ellipse((bx + cw - 28, yy - 2, bx + cw - 16, yy + 10),
+        bx = cx + i * (cw + gap)
+        by = cy
+        rounded(d, (bx, by, bx + cw, by + ch), 18, CARD, outline=(34, 72, 60), width=2)
+        d.text((bx + 20, by + 18), label, font=font(21, True), fill=TEXT)
+        for k in range(3):
+            yy = by + 62 + k * 26
+            rounded(d, (bx + 20, yy, bx + 20 + (160 - k * 40), yy + 10), 5, CARD2)
+            d.ellipse((bx + cw - 36, yy - 2, bx + cw - 22, yy + 12),
                       fill=GREEN if (i + k) % 3 else GREEN_LT)
-    path = os.path.join(out_dir, f"cover-{slug}-v2.png")
+    path = os.path.join(out_dir, f"cover-{slug}-v3.png")
     img.save(path, optimize=True)
     return path
 
