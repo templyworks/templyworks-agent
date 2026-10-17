@@ -14,7 +14,7 @@ COMMON_FAQ = [
     ("Do I need a paid Notion plan?", "No. Everything works on Notion's free plan."),
     ("How do I get it?", "Right after checkout you get a link. Open it, click Duplicate, and the template is in your own Notion workspace."),
     ("Can I change it?", "Yes. Every page, database and property is fully editable."),
-    ("Can I get a refund?", "Because you get instant access to a digital product, all sales are final. Please check the photos and description before you buy. If something doesn't work, email us — we'll fix it."),
+    ("Can I get a refund?", "You agree to instant delivery at checkout, so all sales are final once your link is delivered. Your statutory rights for faulty or not-as-described content are unaffected. If something doesn't work, email us — we'll fix it."),
 ]
 
 P = {
@@ -39,7 +39,7 @@ P = {
   ],
   included=["Transactions tracker (this month, all, income, expenses views)", "Monthly budgets with live status", "Goals & savings pots", "Accounts & net worth", "Subscriptions & bills with next payment dates", "This-month totals (money in / money out)", "Bonus charts & visual dashboard (paid Notion plans)", "Example data so you see how it works", "Quick-Start PDF guide"],
   specs=[("Currency", "Any — amounts are plain numbers")],
-  faq=[("Does it connect to my bank?", "No. You stay in control and add transactions yourself — it takes about 10 seconds each. Nothing is shared with anyone.")],
+  faq=[("Do I need a paid Notion plan?", "No. Everything works on the free plan; only the optional bonus charts need a paid Notion plan."), ("Does it connect to my bank?", "No. You stay in control and add transactions yourself — it takes about 10 seconds each. Nothing is shared with anyone.")],
 ),
 "client-pipeline": dict(
   gid="gid://shopify/Product/16246055371101",
@@ -57,7 +57,7 @@ P = {
   ],
   desc=[
     "If your leads live in your inbox, some of them are slipping. Client Pipeline gives every lead a home, every deal a next step and every follow-up a date.",
-    "Open the page in the morning, check <strong>Follow-ups due</strong>, send your messages and move on. That's the whole routine — about 5 minutes a day.",
+    "Open the page in the morning, check <strong>Today's focus</strong>, send your messages and move on. That's the whole routine — about 5 minutes a day.",
     "Built for freelancers, consultants and small studios who want a CRM they will actually use.",
   ],
   included=["Contacts database", "Deals pipeline board (Prospect → Closed Won)", "Interaction log with follow-up dates", "Follow-up calendar", "Projects for won deals", "Today's focus section", "Example data so you see how it works", "Quick-Start PDF guide"],
@@ -85,7 +85,7 @@ P = {
   ],
   included=["Projects (board, timeline and by-client views)", "Tasks by phase with automatic overdue flags", "Scope change log", "Time log with hourly rates", "This-week section", "Example data so you see how it works", "Quick-Start PDF guide"],
   specs=[],
-  faq=[("Does it work for a team?", "Yes. Share the page with your team in Notion and assign tasks to each other.")],
+  faq=[("Does it work for a team?", "Yes. Share the page with your team in Notion and assign tasks to each other. Teams of 2+ may need Notion Plus for unlimited content.")],
 ),
 "pitch-kit": dict(
   gid="gid://shopify/Product/16246061105501",
@@ -97,7 +97,7 @@ P = {
     ("A PROPOSAL YOU CAN COPY", "A complete example proposal built on 7 steps: Problem, Solution, Why me, Deliverables, Timeline, Pricing, Next step. Duplicate it for each new client."),
     ("GOOD / BETTER / BEST PACKAGES", "Build your service packages once. Link them to a proposal and the price adds up by itself."),
     ("TRACK EVERY PROPOSAL", "Draft → Sent → Viewed → Accepted or Rejected on one board, with your win rate calculated for you."),
-    ("NEVER FORGET TO FOLLOW UP", "Every proposal has a follow-up date. The Follow-ups due view shows who to nudge today."),
+    ("NEVER FORGET TO FOLLOW UP", "Every proposal has a follow-up date. The Follow up now list shows who to nudge today."),
     ("FOLLOW-UP SCRIPTS", "Ready-to-send messages for every stage — from \"thanks for the call\" to \"welcome aboard\" and the polite \"it's too expensive\" reply."),
     ("PROOF BANK", "Case studies with problem, result and quote, ready to link into any proposal."),
   ],
@@ -106,7 +106,7 @@ P = {
     "Your routine: send the proposal within 24 hours of the call, then check <strong>Follow up now</strong> each morning and nudge with a script.",
     "Built for freelancers, consultants and agencies who are tired of rebuilding proposals from scratch.",
   ],
-  included=["Proposals pipeline (board, all, follow-ups due, win rate)", "Services library with 3 tiers", "Fully written example proposal", "Proof & case studies bank", "Follow-up scripts", "7-step proposal guide", "Example data so you see how it works", "Quick-Start PDF guide"],
+  included=["Proposals pipeline (board, all, open proposals, win rate) + Follow up now list", "Services library with 3 tiers", "Fully written example proposal", "Proof & case studies bank", "Follow-up scripts", "7-step proposal guide", "Example data so you see how it works", "Quick-Start PDF guide"],
   specs=[("Currency", "Any — prices are plain numbers")],
   faq=[("Can I send the proposal to my client from Notion?", "Yes. Share the proposal page as a read-only link, or export it as a PDF.")],
 ),
@@ -152,8 +152,8 @@ P = {
     "Fill in the project-at-a-glance header, add milestones and share the page with your client. They can see progress, review files and leave feedback any time.",
     "Built for designers, developers, marketers and any freelancer who works with clients on projects.",
   ],
-  included=["Project-at-a-glance header", "Milestones timeline", "Deliverables board", "Feedback & blockers + feedback form", "Meeting notes", "Invoice tracker", "Example data so you see how it works", "Freelancer setup guide (inside the template)"],
-  specs=[("Licence", "Use with unlimited clients of your own")],
+  included=["Project-at-a-glance header", "Milestones timeline", "Deliverables board", "Feedback & blockers + feedback form", "Meeting notes", "Invoice tracker", "Example data so you see how it works", "Quick-Start PDF guide + setup checklist inside the template"],
+  specs=[("Licence", "Use with unlimited clients of your own (Notion Free allows up to 10 guests at a time; Plus removes the limit)")],
   faq=[("Can my clients edit it?", "You choose. Share it read-only, allow comments, or let them edit — it's a normal Notion share setting."),
        ("Am I allowed to share it with clients?", "Yes. You may duplicate the portal and share your copies with your own clients to deliver your services. You may not resell or publish the template itself. See our <a href=\"/pages/terms-of-service\">Terms of Service</a>.")],
 ),
@@ -174,11 +174,11 @@ P = {
     ("ANY SCHOOL SYSTEM", "Uses a 4.0 GPA and percentages, and every scale is editable. Runs on Notion's free plan."),
   ],
   desc=[
-    "Assignments in one app, grades in another, exam dates on a sticky note. Student OS puts your whole school year in one place and does the grade maths for you.",
+    "Assignments in one app, grades in another, exam dates on a sticky note. Student OS puts your whole school year in one place and does the grade math for you.",
     "Routine: check <strong>This week</strong> every morning, add assignments the day you get them, and log a grade the day it comes back. Ten minutes on Sunday plans the week.",
     "Built for high school and college students who want structure without building a system from scratch.",
   ],
-  included=["Courses with grade & GPA", "Assignments (table, board, calendar)", "Exams with revision plan", "Grades", "Study sessions", "Class schedule", "Notes & habit tracker", "Example data so you see how it works", "Setup guide (inside the template)"],
+  included=["Courses with grade & GPA", "Assignments (table, board, calendar)", "Exams with revision plan", "Grades", "Study sessions", "Class schedule", "Notes & habit tracker", "Example data so you see how it works", "Quick-Start PDF guide + setup checklist inside the template"],
   specs=[("Grading", "GPA (4.0) and % — edit for any school system")],
   faq=[("I'm not in the US. Does it work for me?", "Yes. The grade scale is editable, so you can switch to your own system (points, 1–6, 1–15, percentages and so on).")],
 ),
@@ -197,7 +197,8 @@ def build(p):
     h += ["<h3>Specifications</h3>", "<table><tbody>"]
     h += [f"<tr><td><strong>{a}</strong></td><td>{b}</td></tr>" for a, b in specs]
     h += ["</tbody></table>", "<h3>Frequently asked questions</h3>"]
-    for q, a in p["faq"] + COMMON_FAQ:
+    own = {q for q, _ in p["faq"]}
+    for q, a in p["faq"] + [f for f in COMMON_FAQ if f[0] not in own]:
         h.append(f"<p><strong>{q}</strong><br>{a}</p>")
     return "".join(h)
 

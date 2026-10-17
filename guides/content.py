@@ -225,7 +225,7 @@ TEMPLATES = [
             ]),
         ],
         "routine": [
-            ("New lead", "Send the proposal within 24 hours — it roughly doubles your chances."),
+            ("New lead", "Send the proposal within 24 hours, while interest is highest."),
             ("Every morning (1 min)", "Check Follow up now and nudge with a script."),
             ("Monthly", "Look at Accepted vs Rejected and adjust your packages and prices."),
         ],
@@ -397,7 +397,7 @@ TEMPLATES = [
             ("My school uses a different grading system.", "Edit the Letter and GPA pts formulas in Courses. Grade % works for every system."),
             ("Something isn't working?", "Email info@templyworks.com with a screenshot."),
         ],
-        "licence": "Licence: for your own studies and personal life. Reselling, sharing or publishing the template is not allowed. Digital product — all sales are final once delivered. Statutory rights for defective content remain unaffected. Not academic advice — always follow your school's official grading rules.",
+        "licence": "Licence: for your own studies and personal life. Reselling, sharing or publishing the template is not allowed. Digital product — all sales are final once delivered. Statutory rights for defective content remain unaffected. Not academic advice — always follow your school's official grading rules. (You agreed to immediate delivery at checkout.)",
     },
     {
         "slug": "custom-template",
@@ -405,6 +405,7 @@ TEMPLATES = [
         "name": "Custom Template",
         "tagline": "Your personal Notion system — built for you.",
         "cover_label": "YOUR CUSTOM BUILD GUIDE",
+        "ver": "Custom build guide · Version Oct 2026",
         "intro": "Thanks for ordering a Custom Template. We design a Notion workspace from scratch around how you work. This guide explains what happens next, how to write a great brief, and how to use your finished system.",
         "inside": [
             ("Your workspace", "A personal Notion system designed around your brief."),

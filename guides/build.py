@@ -57,7 +57,7 @@ def cover(c, doc):
     acc = colors.HexColor(t.get("accent", "#2f8f5b")); c.setStrokeColor(acc); c.setLineWidth(3); c.line(M, H * 0.56 - 96, M + 60, H * 0.56 - 96)
     c.setFont("DV", 9); c.setFillColor(colors.HexColor("#8fb39d"))
     c.drawString(M, 22 * mm, "templyworks.com  ·  info@templyworks.com")
-    c.drawRightString(W - M, 22 * mm, lx(t, "ver"))
+    c.drawRightString(W - M, 22 * mm, t.get("ver", lx(t, "ver")))
     c.restoreState()
 
 def page(c, doc):
