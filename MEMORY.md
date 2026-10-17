@@ -47,3 +47,8 @@ Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
 - Analytics 90d: 316 sessions, 1 order, 0.32% CVR; no TikTok pixel; competitors show live preview + demo video + reviews.
 
 - 2026-10-17: Add-to-cart button was button--secondary (dynamic checkout on) → near invisible in dark/light. Fixed with solid-green override in assets/tw-button-unify.css on Templyworks v3.12 (unpublished; writes work while unpublished).
+
+## 2026-10-17 — Legal update
+- Pages updated live (refund-policy, terms-of-service, privacy-policy, imprint, faq, right-of-withdrawal): seller identity, §3a Custom service withdrawal (§356(4)/§357a BGB), statutory-rights line, processors (Shopify Digital Products, Consentmo, Notion, Google Workspace), reply time 1–2 business days.
+- Shopify *policies* (/policies/*) need write_legal_policies scope — NOT available via API. Kevin pastes legal-drafts/*.html via Settings → Policies → <> HTML.
+- Theme "Templyworks v3.13" (gid://shopify/OnlineStoreTheme/210980831581): combined checkout consent (digital + custom service). Needs Kevin to publish.
