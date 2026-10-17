@@ -39,3 +39,9 @@ Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
 - Finance HQ Budgets: "Spent" is now a rounded formula over hidden rollup "Spent (sum)".
 - Pitch Kit Services board: Good → Better → Best (fixed in UI 2026-10-17), "No Tier" hidden.
 - Guides rebuilt 2026-10-17 (guides/*.pdf, Student OS added, Abitur removed). Copies on Kevin's Mac: Downloads/Templyworks-Guides. Uploading to Digital Products needs Kevin (file picker); then delete old PDFs in app UI.
+
+## 2026-10-17 — Full audit (Customer/Ops/Legal/Growth/Intel agents)
+- WARNING: Shopify MCP `upload-digital-product-file` REPLACES all assets (Notion links get wiped). After any upload, re-add links in Digital Products app (Add asset → Link; when asked "Send customers the updated file?" choose Don't send update).
+- Fixed: links restored on 8 products; bundle "price of two" claim; refund FAQ wording (statutory rights); Finance HQ plan FAQ; Client Portal guest-limit note; Student OS taxable=false + frontpage; legacy SKU TW-ABITUR-LEGACY; Custom Template rebuilt description + SEO title; focus-row H3 labels in 5 templates; Saffron tasks (progress 50%); invoices total 8,500; example.com emails; Lumen deal 2,500; Habits/Invoices sorted; Pitch Kit views renamed (Open proposals).
+- Open (needs Kevin): homepage shows Clarity "We'll be back soon" (maintenance); Finance HQ PDF upload; Legal policy updates (Custom service withdrawal exception, statutory-rights line in Refund Policy, privacy §5 processors, seller name in Terms §1, one Terms page); test purchase; Notion UI: Progress % decimals, Scoreboard group order.
+- Analytics 90d: 316 sessions, 1 order, 0.32% CVR; no TikTok pixel; competitors show live preview + demo video + reviews.
