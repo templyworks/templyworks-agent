@@ -37,5 +37,5 @@ Details: `dev-toolkit/README.md`, `dev-toolkit/brand-system.md`.
 - All 7 products: Amazon-style descriptions (product-images/descriptions.py), new 4-image sets (product-images/out/*-v2/v3.png), SEO titles/descriptions.
 - Bundles: new v2 hero + inside images (make_bundle_images.py) + Amazon-style descriptions; then the 3 single heroes.
 - Finance HQ Budgets: "Spent" is now a rounded formula over hidden rollup "Spent (sum)".
-- Pitch Kit Services board view renamed "Best / Better / Good" (API cannot reorder manual groups; "No Tier" hidden).
-- Quick-Start PDFs in Digital Products are older versions; replacing needs upload in Shopify admin (file picker).
+- Pitch Kit Services board: Good → Better → Best (fixed in UI 2026-10-17), "No Tier" hidden.
+- Guides rebuilt 2026-10-17 (guides/*.pdf, Student OS added, Abitur removed). Copies on Kevin's Mac: Downloads/Templyworks-Guides. Uploading to Digital Products needs Kevin (file picker); then delete old PDFs in app UI.
