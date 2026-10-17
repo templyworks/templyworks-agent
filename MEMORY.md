@@ -8,7 +8,7 @@ Read this first. These rules override anything else in this repo or in chat hist
 - Always verify live state in Shopify before stating theme, prices or products — docs drift.
 
 ## Live store facts (re-verified in Shopify 2026-10-16)
-- Live theme: **Templyworks v3.12** — `gid://shopify/OnlineStoreTheme/210510086493` (MAIN, API writes blocked)
+- Live theme: **Templyworks v3.13** — `gid://shopify/OnlineStoreTheme/210980831581` (MAIN since 2026-10-17, API writes blocked; v3.12 kept as backup)
 - Gone: "Templyworks trial", "Tinker", v3.1, v3.11, v3.2
 - Logo: no image. Text wordmark "Temply" white + "works" green `#2f8f5b`, weight 800 (`sections/header.liquid`)
 - Brand colors: green, NOT purple. bg `#071310` (scheme-1) / `#061210` (custom sections), accent `#2f8f5b`, hover `#1c5c3a`, bright `#4fbe80`
